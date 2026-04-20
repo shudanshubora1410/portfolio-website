@@ -1,409 +1,313 @@
-// =====================
-// Navigation Functionality
-// =====================
+/* ================================================================
+   SHUDANSHU BORA – PREMIUM PORTFOLIO JAVASCRIPT
+   Version 3.0 | Built with ❤️
+   ================================================================ */
 
-// DOM Elements
-const navbar = document.getElementById('navbar');
-const navMenu = document.getElementById('nav-menu');
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.querySelectorAll('.nav-link');
+document.addEventListener('DOMContentLoaded', function () {
 
-// Toggle mobile menu
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
+    /* ==================== PRELOADER ==================== */
+    var preloader = document.getElementById('preloader');
 
-// Close mobile menu when clicking a link
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+    window.addEventListener('load', function () {
+        setTimeout(function () {
+            preloader.classList.add('hidden');
+        }, 1800);
     });
-});
 
-// Navbar scroll effect
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
-
-// Active navigation link on scroll
-const sections = document.querySelectorAll('section[id]');
-
-function highlightNavLink() {
-    const scrollY = window.pageYOffset;
-    
-    sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 100;
-        const sectionId = section.getAttribute('id');
-        const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-        
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            navLinks.forEach(link => link.classList.remove('active'));
-            if (navLink) navLink.classList.add('active');
+    setTimeout(function () {
+        if (preloader && !preloader.classList.contains('hidden')) {
+            preloader.classList.add('hidden');
         }
+    }, 3000);
+
+    /* ==================== CUSTOM CURSOR ==================== */
+    var cursorRing = document.getElementById('cursorRing');
+    var cursorDot = document.getElementById('cursorDot');
+    var isTouchDevice = 'ontouchstart' in window;
+
+    if (!isTouchDevice && cursorRing && cursorDot) {
+        document.addEventListener('mousemove', function (e) {
+            cursorRing.style.left = (e.clientX - 16) + 'px';
+            cursorRing.style.top = (e.clientY - 16) + 'px';
+            cursorDot.style.left = (e.clientX - 3) + 'px';
+            cursorDot.style.top = (e.clientY - 3) + 'px';
+            cursorRing.classList.add('visible');
+            cursorDot.classList.add('visible');
+        });
+
+        document.addEventListener('mouseout', function () {
+            cursorRing.classList.remove('visible');
+            cursorDot.classList.remove('visible');
+        });
+
+        var hoverEls = document.querySelectorAll('a, button, .skill-card, .project-card, .stat-card, input, textarea');
+        hoverEls.forEach(function (el) {
+            el.addEventListener('mouseenter', function () { cursorRing.classList.add('hovering'); });
+            el.addEventListener('mouseleave', function () { cursorRing.classList.remove('hovering'); });
+        });
+    }
+
+    /* ==================== NAVBAR ==================== */
+    var navbar = document.getElementById('navbar');
+    var navMenu = document.getElementById('nav-menu');
+    var hamburger = document.getElementById('hamburger');
+    var navLinks = document.querySelectorAll('.nav-link');
+    var backToTop = document.getElementById('backToTop');
+
+    hamburger.addEventListener('click', function () {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
     });
-}
 
-window.addEventListener('scroll', highlightNavLink);
+    navLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
 
-// =====================
-// Typing Animation
-// =====================
+    /* ==================== SCROLL EVENTS ==================== */
+    var sections = document.querySelectorAll('section[id]');
 
-const typingText = document.getElementById('typing-text');
-const phrases = [
-    'Full-Stack Developer',
-    'Java Developer',
-    'IT Student',
-    'Problem Solver',
-    'Tech Enthusiast',
-    'Node.js Developer',
-    'DSA Learner'
-];
+    function onScroll() {
+        var scrollY = window.scrollY;
 
-let phraseIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-let typingSpeed = 100;
+        /* Navbar */
+        if (scrollY > 50) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
 
-function typeEffect() {
-    const currentPhrase = phrases[phraseIndex];
-    
-    if (isDeleting) {
-        typingText.textContent = currentPhrase.substring(0, charIndex - 1);
-        charIndex--;
-        typingSpeed = 50;
-    } else {
-        typingText.textContent = currentPhrase.substring(0, charIndex + 1);
-        charIndex++;
-        typingSpeed = 100;
-    }
-    
-    if (!isDeleting && charIndex === currentPhrase.length) {
-        isDeleting = true;
-        typingSpeed = 2000; // Pause at end
-    } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-        typingSpeed = 500; // Pause before next word
-    }
-    
-    setTimeout(typeEffect, typingSpeed);
-}
+        /* Back to top */
+        if (backToTop) {
+            if (scrollY > 500) backToTop.classList.add('visible');
+            else backToTop.classList.remove('visible');
+        }
 
-// Start typing animation
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(typeEffect, 1000);
-});
-
-// =====================
-// Scroll Animations
-// =====================
-
-// Intersection Observer for fade-in animations
-const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            
-            // Animate skill bars when visible
-            if (entry.target.classList.contains('skill-card')) {
-                entry.target.classList.add('animate');
+        /* Active nav link */
+        sections.forEach(function (section) {
+            var top = section.offsetTop - 120;
+            var height = section.offsetHeight;
+            var id = section.getAttribute('id');
+            var link = document.querySelector('.nav-link[href="#' + id + '"]');
+            if (scrollY >= top && scrollY < top + height) {
+                navLinks.forEach(function (l) { l.classList.remove('active'); });
+                if (link) link.classList.add('active');
             }
-        }
-    });
-}, observerOptions);
-
-// Observe elements for animation
-document.addEventListener('DOMContentLoaded', () => {
-    // Add fade-in class to elements
-    const animateElements = document.querySelectorAll(
-        '.about-text p, .stat-card, .skill-card, .project-card, .contact-card'
-    );
-    
-    animateElements.forEach((el, index) => {
-        el.classList.add('fade-in');
-        el.style.transitionDelay = `${index * 0.1}s`;
-        observer.observe(el);
-    });
-    
-    // Observe skill cards separately for progress bar animation
-    const skillCards = document.querySelectorAll('.skill-card');
-    skillCards.forEach(card => {
-        observer.observe(card);
-    });
-});
-
-// =====================
-// Smooth Scroll for Navigation Links
-// =====================
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        
-        if (target) {
-            const headerOffset = 80;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-            
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// =====================
-// Project Cards Hover Effect
-// =====================
-
-const projectCards = document.querySelectorAll('.project-card');
-
-projectCards.forEach(card => {
-    card.addEventListener('mouseenter', function(e) {
-        this.style.transform = 'translateY(-10px)';
-    });
-    
-    card.addEventListener('mouseleave', function(e) {
-        this.style.transform = 'translateY(0)';
-    });
-});
-
-// =====================
-// Parallax Effect for Home Section
-// =====================
-
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const homeContent = document.querySelector('.home-content');
-    const codeBlock = document.querySelector('.code-block');
-    
-    if (homeContent && scrolled < window.innerHeight) {
-        homeContent.style.transform = `translateY(${scrolled * 0.3}px)`;
-        homeContent.style.opacity = 1 - (scrolled / window.innerHeight);
+        });
     }
-    
-    if (codeBlock && scrolled < window.innerHeight) {
-        codeBlock.style.transform = `translateY(${scrolled * 0.2}px)`;
-    }
-});
 
-// =====================
-// Console Easter Egg
-// =====================
+    window.addEventListener('scroll', onScroll);
+    onScroll();
 
-console.log('%c 👋 Welcome to Shudanshu Bora\'s Portfolio! ', 'background: linear-gradient(135deg, #00d4ff, #7c3aed); color: white; font-size: 20px; padding: 10px; border-radius: 5px;');
-console.log('%c Built with HTML, CSS & Vanilla JavaScript', 'color: #00d4ff; font-size: 14px;');
-console.log('%c 🏥 Featured: Hospital Management System (Node.js, Express, MySQL)', 'color: #7c3aed; font-size: 12px;');
-console.log('%c Thanks for checking out the code! 👨‍💻', 'color: #00d4ff; font-size: 14px;');
-console.log('%c GitHub: https://github.com/shudanshubora1410', 'color: #a0a0b0; font-size: 12px;');
-
-// =====================
-// Project Stats (Optional)
-// =====================
-
-// Display project statistics
-const projectStats = {
-    totalProjects: 5,
-    featuredProject: 'Hospital Management System',
-    techStack: ['Java', 'JavaScript', 'Node.js', 'Express', 'MySQL', 'HTML5', 'CSS3'],
-    linesOfCode: '3500+',
-    builtin: '2nd Year'
-};
-
-console.log('%c 📊 Portfolio Stats:', 'color: #00d4ff; font-size: 14px; font-weight: bold;');
-console.table(projectStats);
-
-// =====================
-// Page Load Animation
-// =====================
-
-window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
-    
-    // Trigger initial animations
-    const homeContent = document.querySelector('.home-content');
-    const homeImage = document.querySelector('.home-image');
-    
-    if (homeContent) {
-        homeContent.style.opacity = '1';
-        homeContent.style.transform = 'translateY(0)';
-    }
-    
-    if (homeImage) {
-        homeImage.style.opacity = '1';
-        homeImage.style.transform = 'translateX(0)';
-    }
-});
-
-// =====================
-// Dynamic Year in Footer
-// =====================
-
-document.addEventListener('DOMContentLoaded', () => {
-    const copyrightYear = document.querySelector('.footer-copyright');
-    if (copyrightYear) {
-        const currentYear = new Date().getFullYear();
-        copyrightYear.textContent = `© ${currentYear} Shudanshu Bora | All Rights Reserved`;
-    }
-});
-
-// =====================
-// Keyboard Navigation
-// =====================
-
-// Enable keyboard shortcuts
-document.addEventListener('keydown', (e) => {
-    // Press 'H' to go home
-    if (e.key === 'h' || e.key === 'H') {
-        if (!e.target.matches('input, textarea')) {
+    /* ==================== BACK TO TOP ==================== */
+    if (backToTop) {
+        backToTop.addEventListener('click', function () {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        });
     }
-    
-    // Press 'C' to scroll to contact
-    if (e.key === 'c' || e.key === 'C') {
-        if (!e.target.matches('input, textarea')) {
-            const contactSection = document.getElementById('contact');
-            if (contactSection) {
-                contactSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    }
-});
 
-// =====================
-// Performance Optimization
-// =====================
-
-// Lazy load images (if any are added in the future)
-if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                if (img.dataset.src) {
-                    img.src = img.dataset.src;
-                    img.classList.add('loaded');
-                    observer.unobserve(img);
-                }
+    /* ==================== SMOOTH SCROLL ==================== */
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            var target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
             }
         });
     });
 
-    document.querySelectorAll('img[data-src]').forEach(img => {
-        imageObserver.observe(img);
+    /* ==================== TYPING ANIMATION ==================== */
+    var typingEl = document.getElementById('typing-text');
+    var phrases = [
+        'Full-Stack Developer',
+        'Java Developer',
+        'Problem Solver',
+        'Node.js Developer',
+        'DSA Enthusiast',
+        'Tech Enthusiast',
+        'IT Student @ GLBITM',
+        'Code Craftsman'
+    ];
+    var phraseIndex = 0;
+    var charIndex = 0;
+    var isDeleting = false;
+    var typingSpeed = 100;
+
+    function typeEffect() {
+        if (!typingEl) return;
+        var current = phrases[phraseIndex];
+
+        if (isDeleting) {
+            typingEl.textContent = current.substring(0, charIndex - 1);
+            charIndex--;
+            typingSpeed = 50;
+        } else {
+            typingEl.textContent = current.substring(0, charIndex + 1);
+            charIndex++;
+            typingSpeed = 100;
+        }
+
+        if (!isDeleting && charIndex === current.length) {
+            isDeleting = true;
+            typingSpeed = 2000;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            typingSpeed = 500;
+        }
+
+        setTimeout(typeEffect, typingSpeed);
+    }
+
+    setTimeout(typeEffect, 1200);
+
+    /* ==================== SCROLL REVEAL ==================== */
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+
+                /* Animate skill bars */
+                if (entry.target.classList.contains('skill-card')) {
+                    var bar = entry.target.querySelector('.skill-progress');
+                    if (bar) {
+                        var progress = bar.getAttribute('data-progress');
+                        setTimeout(function () {
+                            bar.style.width = progress + '%';
+                        }, 200);
+                    }
+                }
+
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+    document.querySelectorAll('.fade-in, .skill-card').forEach(function (el) {
+        observer.observe(el);
     });
-}
 
-// =====================
-// Accessibility Enhancements
-// =====================
+    /* ==================== SKILLS TABS ==================== */
+    var skillTabs = document.querySelectorAll('.skills-tab');
+    var skillCategories = document.querySelectorAll('.skill-category');
 
-// Add aria-labels dynamically
-document.querySelectorAll('.project-link').forEach(link => {
-    if (link.href.includes('github.com')) {
-        link.setAttribute('aria-label', 'View project on GitHub');
-    }
-});
+    skillTabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+            skillTabs.forEach(function (t) { t.classList.remove('active'); });
+            this.classList.add('active');
 
-document.querySelectorAll('.social-links a').forEach(link => {
-    const href = link.href;
-    if (href.includes('github.com')) {
-        link.setAttribute('aria-label', 'Visit GitHub profile');
-    } else if (href.includes('linkedin.com')) {
-        link.setAttribute('aria-label', 'Visit LinkedIn profile');
-    } else if (href.includes('mailto')) {
-        link.setAttribute('aria-label', 'Send email');
-    }
-});
+            var filter = this.getAttribute('data-tab');
 
-// =====================
-// Feature: Copy Email on Click
-// =====================
-
-const emailCards = document.querySelectorAll('.contact-card[href^="mailto"]');
-emailCards.forEach(card => {
-    card.addEventListener('click', (e) => {
-        const email = 'shudanshubora1410@gmail.com';
-        
-        // Try to copy to clipboard
-        if (navigator.clipboard) {
-            navigator.clipboard.writeText(email).then(() => {
-                // Show temporary notification
-                const notification = document.createElement('div');
-                notification.textContent = 'Email copied to clipboard! ✓';
-                notification.style.cssText = `
-                    position: fixed;
-                    bottom: 30px;
-                    right: 30px;
-                    background: linear-gradient(135deg, #00d4ff, #7c3aed);
-                    color: white;
-                    padding: 15px 25px;
-                    border-radius: 8px;
-                    font-size: 14px;
-                    font-weight: 500;
-                    z-index: 10000;
-                    animation: slideIn 0.3s ease;
-                `;
-                
-                document.body.appendChild(notification);
-                
-                setTimeout(() => {
-                    notification.style.animation = 'slideOut 0.3s ease';
-                    setTimeout(() => notification.remove(), 300);
-                }, 2000);
+            skillCategories.forEach(function (cat) {
+                if (filter === 'all' || cat.getAttribute('data-category') === filter) {
+                    cat.style.display = 'block';
+                    cat.style.animation = 'fadeInUp 0.4s ease forwards';
+                } else {
+                    cat.style.display = 'none';
+                }
             });
+        });
+    });
+
+    /* ==================== CONTACT FORM ==================== */
+    var contactForm = document.getElementById('contactForm');
+    var formSuccess = document.getElementById('formSuccess');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var name = document.getElementById('contactName').value.trim();
+            var email = document.getElementById('contactEmail').value.trim();
+            var subject = document.getElementById('contactSubject').value.trim();
+            var message = document.getElementById('contactMessage').value.trim();
+
+            if (!name || !email || !message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            /* Send via WhatsApp / MailTo */
+            var mailtoLink = 'mailto:shudanshubora1410@gmail.com' +
+                '?subject=' + encodeURIComponent(subject || 'Portfolio Contact') +
+                '&body=' + encodeURIComponent(
+                    'Name: ' + name + '\n' +
+                    'Email: ' + email + '\n\n' +
+                    message
+                );
+
+            window.open(mailtoLink, '_blank');
+
+            contactForm.style.display = 'none';
+            if (formSuccess) formSuccess.style.display = 'block';
+        });
+    }
+
+    /* ==================== EMAIL COPY ==================== */
+    var emailItems = document.querySelectorAll('a[href^="mailto"]');
+    emailItems.forEach(function (item) {
+        item.addEventListener('click', function (e) {
+            var email = 'shudanshubora1410@gmail.com';
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(email);
+                showNotification('📧 Email copied to clipboard!', 'cyan');
+            }
+        });
+    });
+
+    /* ==================== NOTIFICATION ==================== */
+    function showNotification(text, color) {
+        var colors = { cyan: '#00d4ff', purple: '#7c3aed', green: '#10b981' };
+        var notif = document.createElement('div');
+        notif.textContent = text;
+        notif.style.cssText = 'position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:' + (colors[color] || colors.cyan) + ';color:#0a0a0f;padding:12px 24px;border-radius:50px;font-size:0.85rem;font-weight:600;z-index:10000;box-shadow:0 8px 25px rgba(0,0,0,0.3);animation:slideUp 0.3s ease;';
+        document.body.appendChild(notif);
+        setTimeout(function () { notif.remove(); }, 2500);
+    }
+
+    /* ==================== FOOTER YEAR ==================== */
+    var yearEl = document.getElementById('footerYear');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    /* ==================== KEYBOARD SHORTCUTS ==================== */
+    document.addEventListener('keydown', function (e) {
+        if (e.target.matches('input, textarea, select')) return;
+
+        switch (e.key.toLowerCase()) {
+            case 'h': window.scrollTo({ top: 0, behavior: 'smooth' }); break;
+            case 'p': document.getElementById('projects').scrollIntoView({ behavior: 'smooth' }); break;
+            case 'c': document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); break;
+            case 's': document.getElementById('skills').scrollIntoView({ behavior: 'smooth' }); break;
         }
     });
+
+    /* ==================== PARALLAX HERO ==================== */
+    window.addEventListener('scroll', function () {
+        var scrolled = window.scrollY;
+        var heroContent = document.querySelector('.home-content');
+        var codeBlock = document.querySelector('.code-block');
+
+        if (heroContent && scrolled < window.innerHeight) {
+            heroContent.style.transform = 'translateY(' + scrolled * 0.15 + 'px)';
+            heroContent.style.opacity = 1 - (scrolled / window.innerHeight) * 1.2;
+        }
+
+        if (codeBlock && scrolled < window.innerHeight) {
+            codeBlock.style.transform = 'translateY(' + scrolled * 0.08 + 'px)';
+        }
+    });
+
+    /* ==================== CONSOLE BRANDING ==================== */
+    console.log('%c 💻 Shudanshu Bora Portfolio v3.0 ', 'background: linear-gradient(135deg, #00d4ff, #7c3aed); color: white; font-size: 16px; padding: 10px 20px; border-radius: 8px; font-weight: bold;');
+    console.log('%c ☕ Also check: Cafe Roadway – 43 Feature Restaurant Site ', 'background: #f59e0b; color: #0a0a0f; font-size: 12px; padding: 6px 14px; border-radius: 4px;');
+    console.log('%c 🌐 https://shudanshubora1410.github.io/cafe-roadway ', 'color: #00d4ff; font-size: 12px;');
+    console.log('%c 📧 shudanshubora1410@gmail.com ', 'color: #94a3b8; font-size: 11px;');
+    console.log('%c ⌨️  Keyboard shortcuts: H=Home P=Projects C=Contact S=Skills ', 'color: #64748b; font-size: 11px;');
+
+    /* Slide up keyframe */
+    var style = document.createElement('style');
+    style.textContent = '@keyframes slideUp { from { opacity:0; transform:translate(-50%,20px); } to { opacity:1; transform:translate(-50%,0); } }';
+    document.head.appendChild(style);
+
 });
-
-// Add animation keyframes for notification
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideIn {
-        from {
-            transform: translateX(400px);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-    
-    @keyframes slideOut {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(400px);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(style);
-
-// =====================
-// Log Build Info
-// =====================
-
-console.log('%c 🚀 Portfolio v2.0', 'color: #00d4ff; font-size: 16px; font-weight: bold;');
-console.log('%c Last Updated: March 2026', 'color: #a0a0b0; font-size: 12px;');
-console.log('%c Built during 3rd Year B.Tech', 'color: #7c3aed; font-size: 12px;');
