@@ -1,6 +1,6 @@
 /* ================================================================
-   SHUDANSHU BORA – PREMIUM PORTFOLIO JAVASCRIPT
-   Version 3.0 | Built with ❤️
+   SHUDANSHU BORA – PORTFOLIO JAVASCRIPT v4.0
+   Java Full Stack Developer | Made with ❤️
    ================================================================ */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -8,40 +8,57 @@ document.addEventListener('DOMContentLoaded', function () {
     /* ==================== PRELOADER ==================== */
     var preloader = document.getElementById('preloader');
 
-    window.addEventListener('load', function () {
-        setTimeout(function () {
-            preloader.classList.add('hidden');
-        }, 1800);
-    });
-
-    setTimeout(function () {
-        if (preloader && !preloader.classList.contains('hidden')) {
+    function hidePreloader() {
+        if (preloader) {
             preloader.classList.add('hidden');
         }
-    }, 3000);
+    }
+
+    window.addEventListener('load', function () {
+        setTimeout(hidePreloader, 1500);
+    });
+
+    /* Safety fallback */
+    setTimeout(hidePreloader, 3000);
+
+    if (document.readyState === 'complete') {
+        setTimeout(hidePreloader, 800);
+    }
 
     /* ==================== CUSTOM CURSOR ==================== */
     var cursorRing = document.getElementById('cursorRing');
     var cursorDot = document.getElementById('cursorDot');
-    var isTouchDevice = 'ontouchstart' in window;
+    var isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
     if (!isTouchDevice && cursorRing && cursorDot) {
+        var mouseX = 0, mouseY = 0;
+        var ringX = 0, ringY = 0;
+
         document.addEventListener('mousemove', function (e) {
-            cursorRing.style.left = (e.clientX - 16) + 'px';
-            cursorRing.style.top = (e.clientY - 16) + 'px';
-            cursorDot.style.left = (e.clientX - 3) + 'px';
-            cursorDot.style.top = (e.clientY - 3) + 'px';
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursorDot.style.left = (mouseX - 3) + 'px';
+            cursorDot.style.top = (mouseY - 3) + 'px';
             cursorRing.classList.add('visible');
             cursorDot.classList.add('visible');
         });
+
+        /* Smooth ring follow */
+        function animateCursor() {
+            ringX += (mouseX - ringX) * 0.12;
+            ringY += (mouseY - ringY) * 0.12;
+            cursorRing.style.left = (ringX - 16) + 'px';
+            cursorRing.style.top = (ringY - 16) + 'px';
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
 
         document.addEventListener('mouseout', function () {
             cursorRing.classList.remove('visible');
             cursorDot.classList.remove('visible');
         });
 
-        var hoverEls = document.querySelectorAll('a, button, .skill-card, .project-card, .stat-card, input, textarea');
-        hoverEls.forEach(function (el) {
+        document.querySelectorAll('a, button, .skill-item, .project-card, .stat-card, .tech-item, input, textarea').forEach(function (el) {
             el.addEventListener('mouseenter', function () { cursorRing.classList.add('hovering'); });
             el.addEventListener('mouseleave', function () { cursorRing.classList.remove('hovering'); });
         });
@@ -53,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var hamburger = document.getElementById('hamburger');
     var navLinks = document.querySelectorAll('.nav-link');
     var backToTop = document.getElementById('backToTop');
+    var sections = document.querySelectorAll('section[id]');
 
     hamburger.addEventListener('click', function () {
         hamburger.classList.toggle('active');
@@ -69,8 +87,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     /* ==================== SCROLL EVENTS ==================== */
-    var sections = document.querySelectorAll('section[id]');
-
     function onScroll() {
         var scrollY = window.scrollY;
 
@@ -84,9 +100,9 @@ document.addEventListener('DOMContentLoaded', function () {
             else backToTop.classList.remove('visible');
         }
 
-        /* Active nav link */
+        /* Active nav */
         sections.forEach(function (section) {
-            var top = section.offsetTop - 120;
+            var top = section.offsetTop - 130;
             var height = section.offsetHeight;
             var id = section.getAttribute('id');
             var link = document.querySelector('.nav-link[href="#' + id + '"]');
@@ -113,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
             e.preventDefault();
             var target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+                window.scrollTo({ top: target.offsetTop - 75, behavior: 'smooth' });
             }
         });
     });
@@ -121,14 +137,14 @@ document.addEventListener('DOMContentLoaded', function () {
     /* ==================== TYPING ANIMATION ==================== */
     var typingEl = document.getElementById('typing-text');
     var phrases = [
-        'Full-Stack Developer',
-        'Java Developer',
-        'Problem Solver',
-        'Node.js Developer',
-        'DSA Enthusiast',
-        'Tech Enthusiast',
-        'IT Student @ GLBITM',
-        'Code Craftsman'
+        'Java Full Stack Developer',
+        'DSA Problem Solver',
+        'Java Core Expert',
+        'Frontend Developer',
+        'Learning Advanced Java 🔄',
+        'Future Spring Boot Dev 🎯',
+        'Code Craftsman',
+        'GLBITM IT Student'
     ];
     var phraseIndex = 0;
     var charIndex = 0;
@@ -151,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!isDeleting && charIndex === current.length) {
             isDeleting = true;
-            typingSpeed = 2000;
+            typingSpeed = 2200;
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
             phraseIndex = (phraseIndex + 1) % phrases.length;
@@ -164,51 +180,54 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(typeEffect, 1200);
 
     /* ==================== SCROLL REVEAL ==================== */
-    var observer = new IntersectionObserver(function (entries) {
+    var revealObserver = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-
-                /* Animate skill bars */
-                if (entry.target.classList.contains('skill-card')) {
-                    var bar = entry.target.querySelector('.skill-progress');
-                    if (bar) {
-                        var progress = bar.getAttribute('data-progress');
-                        setTimeout(function () {
-                            bar.style.width = progress + '%';
-                        }, 200);
-                    }
-                }
-
-                observer.unobserve(entry.target);
+                revealObserver.unobserve(entry.target);
             }
         });
     }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
-    document.querySelectorAll('.fade-in, .skill-card').forEach(function (el) {
-        observer.observe(el);
+    document.querySelectorAll('.fade-in').forEach(function (el) {
+        revealObserver.observe(el);
     });
 
-    /* ==================== SKILLS TABS ==================== */
-    var skillTabs = document.querySelectorAll('.skills-tab');
-    var skillCategories = document.querySelectorAll('.skill-category');
-
-    skillTabs.forEach(function (tab) {
-        tab.addEventListener('click', function () {
-            skillTabs.forEach(function (t) { t.classList.remove('active'); });
-            this.classList.add('active');
-
-            var filter = this.getAttribute('data-tab');
-
-            skillCategories.forEach(function (cat) {
-                if (filter === 'all' || cat.getAttribute('data-category') === filter) {
-                    cat.style.display = 'block';
-                    cat.style.animation = 'fadeInUp 0.4s ease forwards';
-                } else {
-                    cat.style.display = 'none';
-                }
-            });
+    /* ==================== SKILL BAR ANIMATION ==================== */
+    var skillObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                var fills = entry.target.querySelectorAll('.skill-fill');
+                fills.forEach(function (fill) {
+                    var progress = fill.getAttribute('data-progress');
+                    setTimeout(function () {
+                        fill.style.width = progress + '%';
+                    }, 300);
+                });
+                skillObserver.unobserve(entry.target);
+            }
         });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.skills-status-card').forEach(function (card) {
+        skillObserver.observe(card);
+    });
+
+    /* ==================== JOURNEY PHASE ANIMATION ==================== */
+    var journeyObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateX(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.journey-phase').forEach(function (phase, index) {
+        phase.style.opacity = '0';
+        phase.style.transform = 'translateX(-20px)';
+        phase.style.transition = 'opacity 0.6s ease ' + (index * 0.15) + 's, transform 0.6s ease ' + (index * 0.15) + 's';
+        journeyObserver.observe(phase);
     });
 
     /* ==================== CONTACT FORM ==================== */
@@ -224,13 +243,12 @@ document.addEventListener('DOMContentLoaded', function () {
             var message = document.getElementById('contactMessage').value.trim();
 
             if (!name || !email || !message) {
-                alert('Please fill in all required fields.');
+                showNotification('⚠️ Please fill all required fields!', 'orange');
                 return;
             }
 
-            /* Send via WhatsApp / MailTo */
             var mailtoLink = 'mailto:shudanshubora1410@gmail.com' +
-                '?subject=' + encodeURIComponent(subject || 'Portfolio Contact') +
+                '?subject=' + encodeURIComponent(subject || 'Portfolio Contact from ' + name) +
                 '&body=' + encodeURIComponent(
                     'Name: ' + name + '\n' +
                     'Email: ' + email + '\n\n' +
@@ -238,32 +256,32 @@ document.addEventListener('DOMContentLoaded', function () {
                 );
 
             window.open(mailtoLink, '_blank');
-
             contactForm.style.display = 'none';
             if (formSuccess) formSuccess.style.display = 'block';
+            showNotification('✅ Message sent! I\'ll reply soon.', 'green');
         });
     }
 
-    /* ==================== EMAIL COPY ==================== */
-    var emailItems = document.querySelectorAll('a[href^="mailto"]');
-    emailItems.forEach(function (item) {
-        item.addEventListener('click', function (e) {
-            var email = 'shudanshubora1410@gmail.com';
-            if (navigator.clipboard) {
-                navigator.clipboard.writeText(email);
-                showNotification('📧 Email copied to clipboard!', 'cyan');
-            }
-        });
-    });
-
     /* ==================== NOTIFICATION ==================== */
     function showNotification(text, color) {
-        var colors = { cyan: '#00d4ff', purple: '#7c3aed', green: '#10b981' };
+        var colors = {
+            green: 'linear-gradient(135deg,#10b981,#34d399)',
+            orange: 'linear-gradient(135deg,#f59e0b,#fbbf24)',
+            cyan: 'linear-gradient(135deg,#00d4ff,#7c3aed)'
+        };
+
         var notif = document.createElement('div');
         notif.textContent = text;
-        notif.style.cssText = 'position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:' + (colors[color] || colors.cyan) + ';color:#0a0a0f;padding:12px 24px;border-radius:50px;font-size:0.85rem;font-weight:600;z-index:10000;box-shadow:0 8px 25px rgba(0,0,0,0.3);animation:slideUp 0.3s ease;';
+        notif.style.cssText = 'position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:' + (colors[color] || colors.cyan) + ';color:#0a0a0f;padding:12px 24px;border-radius:50px;font-size:0.85rem;font-weight:600;z-index:99999;box-shadow:0 8px 25px rgba(0,0,0,0.3);white-space:nowrap;';
         document.body.appendChild(notif);
-        setTimeout(function () { notif.remove(); }, 2500);
+        setTimeout(function () { if (notif.parentNode) notif.remove(); }, 2500);
+    }
+
+    /* ==================== NAVBAR TOGGLER ==================== */
+    var navColEl = document.getElementById('navbarNav');
+    if (navColEl) {
+        navColEl.addEventListener('show.bs.collapse', function () { hamburger.setAttribute('aria-expanded', 'true'); });
+        navColEl.addEventListener('hide.bs.collapse', function () { hamburger.setAttribute('aria-expanded', 'false'); });
     }
 
     /* ==================== FOOTER YEAR ==================== */
@@ -275,10 +293,26 @@ document.addEventListener('DOMContentLoaded', function () {
         if (e.target.matches('input, textarea, select')) return;
 
         switch (e.key.toLowerCase()) {
-            case 'h': window.scrollTo({ top: 0, behavior: 'smooth' }); break;
-            case 'p': document.getElementById('projects').scrollIntoView({ behavior: 'smooth' }); break;
-            case 'c': document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); break;
-            case 's': document.getElementById('skills').scrollIntoView({ behavior: 'smooth' }); break;
+            case 'h':
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                showNotification('🏠 Home', 'cyan');
+                break;
+            case 'p':
+                document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+                showNotification('📁 Projects', 'cyan');
+                break;
+            case 'c':
+                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                showNotification('📞 Contact', 'cyan');
+                break;
+            case 's':
+                document.getElementById('skills').scrollIntoView({ behavior: 'smooth' });
+                showNotification('⚙️ Skills', 'cyan');
+                break;
+            case 'j':
+                document.getElementById('journey').scrollIntoView({ behavior: 'smooth' });
+                showNotification('🗺️ Journey', 'cyan');
+                break;
         }
     });
 
@@ -289,25 +323,20 @@ document.addEventListener('DOMContentLoaded', function () {
         var codeBlock = document.querySelector('.code-block');
 
         if (heroContent && scrolled < window.innerHeight) {
-            heroContent.style.transform = 'translateY(' + scrolled * 0.15 + 'px)';
-            heroContent.style.opacity = 1 - (scrolled / window.innerHeight) * 1.2;
+            heroContent.style.transform = 'translateY(' + scrolled * 0.1 + 'px)';
+            heroContent.style.opacity = String(1 - (scrolled / window.innerHeight) * 1.1);
         }
 
         if (codeBlock && scrolled < window.innerHeight) {
-            codeBlock.style.transform = 'translateY(' + scrolled * 0.08 + 'px)';
+            codeBlock.style.transform = 'translateY(' + scrolled * 0.06 + 'px)';
         }
     });
 
     /* ==================== CONSOLE BRANDING ==================== */
-    console.log('%c 💻 Shudanshu Bora Portfolio v3.0 ', 'background: linear-gradient(135deg, #00d4ff, #7c3aed); color: white; font-size: 16px; padding: 10px 20px; border-radius: 8px; font-weight: bold;');
-    console.log('%c ☕ Also check: Cafe Roadway – 43 Feature Restaurant Site ', 'background: #f59e0b; color: #0a0a0f; font-size: 12px; padding: 6px 14px; border-radius: 4px;');
-    console.log('%c 🌐 https://shudanshubora1410.github.io/cafe-roadway ', 'color: #00d4ff; font-size: 12px;');
-    console.log('%c 📧 shudanshubora1410@gmail.com ', 'color: #94a3b8; font-size: 11px;');
-    console.log('%c ⌨️  Keyboard shortcuts: H=Home P=Projects C=Contact S=Skills ', 'color: #64748b; font-size: 11px;');
-
-    /* Slide up keyframe */
-    var style = document.createElement('style');
-    style.textContent = '@keyframes slideUp { from { opacity:0; transform:translate(-50%,20px); } to { opacity:1; transform:translate(-50%,0); } }';
-    document.head.appendChild(style);
+    console.log('%c ☕ Shudanshu Bora – Java Full Stack Developer ', 'background:linear-gradient(135deg,#00d4ff,#7c3aed);color:white;font-size:15px;padding:10px 20px;border-radius:8px;font-weight:bold;');
+    console.log('%c 🚀 Portfolio v4.0 | GLBITM Greater Noida ', 'background:#13131f;color:#00d4ff;font-size:12px;padding:6px 14px;border-radius:4px;');
+    console.log('%c ☕ Also check: Cafe Roadway – 43 Feature Restaurant Site ', 'background:#f59e0b;color:#0a0a0f;font-size:11px;padding:5px 12px;border-radius:4px;');
+    console.log('%c 🌐 https://shudanshubora1410.github.io/cafe-roadway ', 'color:#00d4ff;font-size:11px;');
+    console.log('%c ⌨️ Shortcuts: H=Home P=Projects C=Contact S=Skills J=Journey ', 'color:#64748b;font-size:11px;');
 
 });
