@@ -5,30 +5,20 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    document.addEventListener('DOMContentLoaded', function () {
-
     /* ==================== PRELOADER ==================== */
     var preloader = document.getElementById('preloader');
 
-    /* Hide preloader immediately on load */
-    function hidePreloader() {
-        if (preloader) {
-            preloader.classList.add('hidden');
-        }
-    }
-
-    /* Multiple fallbacks to ensure it hides */
     window.addEventListener('load', function () {
-        setTimeout(hidePreloader, 1000);
+        setTimeout(function () {
+            preloader.classList.add('hidden');
+        }, 1800);
     });
 
-    /* Force hide after 2 seconds no matter what */
-    setTimeout(hidePreloader, 2000);
-
-    /* Force hide immediately if page already loaded */
-    if (document.readyState === 'complete') {
-        setTimeout(hidePreloader, 500);
-    }
+    setTimeout(function () {
+        if (preloader && !preloader.classList.contains('hidden')) {
+            preloader.classList.add('hidden');
+        }
+    }, 3000);
 
     /* ==================== CUSTOM CURSOR ==================== */
     var cursorRing = document.getElementById('cursorRing');
