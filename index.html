@@ -3,295 +3,408 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shudanshu Bora - Full Stack Developer & B.Tech IT Student from Greater Noida. Building premium web experiences.">
+    <meta name="author" content="Shudanshu Bora">
+    <meta property="og:title" content="Shudanshu Bora | Full-Stack Developer Portfolio">
+    <meta property="og:description" content="3rd Year B.Tech IT Student | Full-Stack Developer | Problem Solver">
     <title>Shudanshu Bora | Full-Stack Developer Portfolio</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
+
+    <!-- ====== PRELOADER ====== -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">&lt;SB/&gt;</div>
+            <div class="preloader-bar"><div class="preloader-fill"></div></div>
+        </div>
+    </div>
+
+    <!-- ====== CURSOR ====== -->
+    <div class="cursor-ring" id="cursorRing"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+
+    <!-- ====== NAVBAR ====== -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#home" class="nav-logo">
                 <span class="logo-bracket">&lt;</span>SB<span class="logo-bracket">/&gt;</span>
             </a>
             <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link active">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#skills" class="nav-link">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#projects" class="nav-link">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="nav-actions">
+                <a href="https://github.com/shudanshubora1410" target="_blank" class="nav-github-btn">
+                    <i class="bi bi-github"></i> GitHub
+                </a>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Home Section -->
+    <!-- ====== HERO SECTION ====== -->
     <section id="home" class="home-section">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+        <div class="hero-orb hero-orb-3"></div>
         <div class="home-container">
             <div class="home-content">
-                <p class="greeting">Hello, I'm</p>
-                <h1 class="name">Shudanshu Bora</h1>
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    Available for Internships
+                </div>
+                <p class="greeting">Hello World, I'm</p>
+                <h1 class="name">Shudanshu<br><span class="name-accent">Bora</span></h1>
                 <div class="typing-container">
+                    <span class="typing-prefix">&gt; </span>
                     <span class="typing-text" id="typing-text"></span>
                     <span class="cursor">|</span>
                 </div>
-                <p class="intro">
-                    3rd Year B.Tech IT Student | Full-Stack Developer | Problem Solver
-                </p>
                 <p class="intro-description">
-                    I'm passionate about building impactful software solutions and turning ideas into reality through code. 
-                    With expertise in full-stack development and a strong foundation in Java and Data Structures, 
-                    I create efficient, scalable applications that solve real-world problems.
+                    3rd Year B.Tech IT Student at GLBITM, Greater Noida.
+                    I build <span class="text-accent">premium web experiences</span>,
+                    solve complex problems with <span class="text-accent">clean code</span>,
+                    and turn ideas into <span class="text-accent">real products</span>.
                 </p>
                 <div class="home-buttons">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="bi bi-folder2-open"></i> View Projects
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="bi bi-send"></i> Contact Me
+                    </a>
+                    <a href="https://github.com/shudanshubora1410" target="_blank" class="btn btn-ghost">
+                        <i class="bi bi-github"></i> GitHub
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-num">5+</span>
+                        <span class="hero-stat-label">Projects</span>
+                    </div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-num">43+</span>
+                        <span class="hero-stat-label">Features Built</span>
+                    </div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-num">3rd</span>
+                        <span class="hero-stat-label">Year B.Tech</span>
+                    </div>
                 </div>
                 <div class="social-links">
-                    <a href="https://github.com/shudanshubora1410" target="_blank" title="GitHub">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
+                    <a href="https://github.com/shudanshubora1410" target="_blank" class="social-link" title="GitHub">
+                        <i class="bi bi-github"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/shudanshubora/" target="_blank" title="LinkedIn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
+                    <a href="https://www.linkedin.com/in/shudanshubora/" target="_blank" class="social-link" title="LinkedIn">
+                        <i class="bi bi-linkedin"></i>
                     </a>
-                    <a href="mailto:shudanshubora1410@gmail.com" title="Email">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
+                    <a href="mailto:shudanshubora1410@gmail.com" class="social-link" title="Email">
+                        <i class="bi bi-envelope-fill"></i>
+                    </a>
+                    <a href="https://leetcode.com/shudanshubora1410" target="_blank" class="social-link" title="LeetCode">
+                        <i class="bi bi-code-square"></i>
                     </a>
                 </div>
             </div>
             <div class="home-image">
                 <div class="code-block">
                     <div class="code-header">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
+                        <div class="code-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="code-filename">Developer.java</span>
                     </div>
-                    <pre class="code-content">
-<span class="keyword">public class</span> <span class="class-name">Developer</span> {
-    <span class="keyword">private</span> String name;
-    <span class="keyword">private</span> String role;
-    <span class="keyword">private</span> String[] skills;
-    
-    <span class="keyword">public</span> <span class="method">Developer</span>() {
-        <span class="keyword">this</span>.name = <span class="string">"Shudanshu"</span>;
-        <span class="keyword">this</span>.role = <span class="string">"Full-Stack Dev"</span>;
-        <span class="keyword">this</span>.skills = <span class="keyword">new</span> String[]{
-            <span class="string">"Java"</span>, <span class="string">"Node.js"</span>, 
-            <span class="string">"MySQL"</span>, <span class="string">"DSA"</span>
-        };
-    }
-    
+                    <pre class="code-content"><span class="keyword">public class</span> <span class="class-name">Developer</span> {
+
+    <span class="keyword">private</span> String name = <span class="string">"Shudanshu Bora"</span>;
+    <span class="keyword">private</span> String role = <span class="string">"Full-Stack Dev"</span>;
+    <span class="keyword">private</span> String college = <span class="string">"GLBITM"</span>;
+    <span class="keyword">private</span> String year = <span class="string">"3rd Year B.Tech IT"</span>;
+
+    <span class="keyword">private</span> String[] skills = {
+        <span class="string">"Java"</span>, <span class="string">"JavaScript"</span>,
+        <span class="string">"Node.js"</span>, <span class="string">"MySQL"</span>,
+        <span class="string">"HTML5"</span>, <span class="string">"CSS3"</span>,
+        <span class="string">"DSA"</span>, <span class="string">"Bootstrap"</span>
+    };
+
     <span class="keyword">public void</span> <span class="method">build</span>() {
         System.out.println(
-            <span class="string">"Building solutions!"</span>
+            <span class="string">"Building solutions! 🚀"</span>
         );
+    }
+
+    <span class="keyword">public boolean</span> <span class="method">isAvailable</span>() {
+        <span class="keyword">return true</span>; <span class="comment">// Hire me!</span>
     }
 }</pre>
                 </div>
             </div>
         </div>
         <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
+            <div class="mouse"><div class="wheel"></div></div>
             <p>Scroll Down</p>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ====== ABOUT SECTION ====== -->
     <section id="about" class="about-section">
         <div class="container">
-            <h2 class="section-title">
+            <h2 class="section-title fade-in">
                 <span class="title-number">01.</span> About Me
             </h2>
             <div class="about-content">
-                <div class="about-text">
+                <div class="about-text fade-in">
                     <p>
-                        Hi there! I'm <span class="highlight">Shudanshu Bora</span>, a 
-                        <span class="highlight">3rd Year B.Tech Information Technology</span> student 
-                        from Greater Noida with a passion for building impactful software solutions.
+                        Hi there! I'm <span class="highlight">Shudanshu Bora</span>, a
+                        <span class="highlight">3rd Year B.Tech Information Technology</span> student
+                        from GLBITM, Greater Noida. I'm passionate about building software that
+                        makes a real difference.
                     </p>
                     <p>
-                        My journey started with <span class="highlight">Java programming</span>, where I developed 
-                        a strong foundation in <span class="highlight">Data Structures and Algorithms</span>. 
-                        During my 2nd year, I expanded into <span class="highlight">full-stack development</span>, 
-                        building a complete <span class="highlight">Hospital Management System</span> with Node.js, 
-                        Express, and MySQL.
+                        My journey started with <span class="highlight">Java programming</span> and
+                        <span class="highlight">Data Structures</span>. In 2nd year, I built a complete
+                        <span class="highlight">Hospital Management System</span> with Node.js, Express &
+                        MySQL. I also built <span class="highlight">Cafe Roadway</span> — a premium
+                        43-feature restaurant website using just HTML, CSS & JavaScript.
                     </p>
                     <p>
-                        I believe in <span class="highlight">learning by building</span>. From desktop applications 
-                        to full-stack web systems, I enjoy solving real-world problems through code. I'm particularly 
-                        interested in healthcare technology, automation, and creating software that makes a difference.
+                        I believe in <span class="highlight">learning by building</span>. Currently focused
+                        on <span class="highlight">MERN Stack</span>, <span class="highlight">DSA</span>,
+                        and building projects that solve real-world problems.
                     </p>
-                    <p>
-                        Currently focused on strengthening my development skills, contributing to open-source projects, 
-                        and preparing for a career as a <span class="highlight">Software Developer</span> at a 
-                        product-based company.
-                    </p>
+                    <div class="about-info-grid">
+                        <div class="about-info-item">
+                            <span class="info-label">📍 Location</span>
+                            <span class="info-value">Greater Noida, India</span>
+                        </div>
+                        <div class="about-info-item">
+                            <span class="info-label">🎓 College</span>
+                            <span class="info-value">GLBITM</span>
+                        </div>
+                        <div class="about-info-item">
+                            <span class="info-label">📚 Degree</span>
+                            <span class="info-value">B.Tech IT (3rd Year)</span>
+                        </div>
+                        <div class="about-info-item">
+                            <span class="info-label">🎯 Goal</span>
+                            <span class="info-value">Software Engineer</span>
+                        </div>
+                        <div class="about-info-item">
+                            <span class="info-label">🌱 Learning</span>
+                            <span class="info-value">React.js & MongoDB</span>
+                        </div>
+                        <div class="about-info-item">
+                            <span class="info-label">💼 Status</span>
+                            <span class="info-value available">Open to Internships ✅</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <span class="stat-icon">🎓</span>
-                        <h3>Education</h3>
-                        <p>B.Tech IT (3rd Year)</p>
+                <div class="about-right">
+                    <div class="about-stats fade-in">
+                        <div class="stat-card">
+                            <span class="stat-icon">🎓</span>
+                            <h3>Education</h3>
+                            <p>B.Tech IT (3rd Year)</p>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-icon">💻</span>
+                            <h3>Specialization</h3>
+                            <p>Full-Stack Dev</p>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-icon">🎯</span>
+                            <h3>Focus Area</h3>
+                            <p>Problem Solving</p>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-icon">🚀</span>
+                            <h3>Goal</h3>
+                            <p>Software Engineer</p>
+                        </div>
                     </div>
-                    <div class="stat-card">
-                        <span class="stat-icon">💻</span>
-                        <h3>Specialization</h3>
-                        <p>Full-Stack Dev</p>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-icon">🎯</span>
-                        <h3>Focus Area</h3>
-                        <p>Problem Solving</p>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-icon">🚀</span>
-                        <h3>Goal</h3>
-                        <p>Software Engineer</p>
+                    <div class="currently-learning fade-in">
+                        <h4><i class="bi bi-lightning-charge-fill"></i> Currently Learning</h4>
+                        <div class="learning-tags">
+                            <span>React.js</span>
+                            <span>MongoDB</span>
+                            <span>System Design</span>
+                            <span>DSA Advanced</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- ====== SKILLS SECTION ====== -->
     <section id="skills" class="skills-section">
         <div class="container">
-            <h2 class="section-title">
+            <h2 class="section-title fade-in">
                 <span class="title-number">02.</span> Skills & Technologies
             </h2>
+            <div class="skills-tabs fade-in">
+                <button class="skills-tab active" data-tab="all">All</button>
+                <button class="skills-tab" data-tab="languages">Languages</button>
+                <button class="skills-tab" data-tab="backend">Backend</button>
+                <button class="skills-tab" data-tab="frontend">Frontend</button>
+                <button class="skills-tab" data-tab="tools">Tools</button>
+            </div>
             <div class="skills-container">
-                <div class="skill-category">
+                <!-- Languages -->
+                <div class="skill-category" data-category="languages">
                     <h3 class="category-title">Programming Languages</h3>
                     <div class="skills-grid">
-                        <div class="skill-card" data-skill="90">
-                            <div class="skill-icon">
-                                <svg viewBox="0 0 128 128">
-                                    <path fill="#EA2D2E" d="M47.617 98.12s-4.767 2.774 3.397 3.71c9.892 1.13 14.947.968 25.845-1.092 0 0 2.871 1.795 6.873 3.351-24.439 10.47-55.308-.607-36.115-5.969zM44.629 84.455s-5.348 3.959 2.823 4.805c10.567 1.091 18.91 1.18 33.354-1.6 0 0 1.993 2.025 5.132 3.131-29.542 8.64-62.446.68-41.309-6.336z"></path>
-                                    <path fill="#EA2D2E" d="M69.802 61.271c6.025 6.935-1.58 13.17-1.58 13.17s15.289-7.891 8.269-17.777c-6.559-9.215-11.587-13.792 15.635-29.58 0 .001-42.731 10.67-22.324 34.187z"></path>
-                                </svg>
+                        <div class="skill-card fade-in">
+                            <div class="skill-icon-wrapper">
+                                <div class="skill-icon-text java">Java</div>
                             </div>
-                            <h4>Java</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="--progress: 90%"></div>
+                            <div class="skill-info">
+                                <h4>Java</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="90"></div>
+                                </div>
+                                <span class="skill-percent">90%</span>
                             </div>
-                            <span class="skill-percent">90%</span>
                         </div>
-                        <div class="skill-card" data-skill="75">
-                            <div class="skill-icon">
-                                <svg viewBox="0 0 128 128">
-                                    <path fill="#F7DF1E" d="M2 1v125h125V1H2zm66.119 106.513c-1.845 3.749-5.367 6.212-9.448 7.401-6.271 1.44-12.269.619-16.731-2.059-2.986-1.832-5.318-4.652-6.901-7.901l9.52-5.83c.083.035.333.487.667 1.071 1.214 2.034 2.261 3.474 4.319 4.485 2.022.69 6.461 1.131 8.175-2.427 1.047-1.81.714-7.628.714-14.065C58.433 72.112 58.5 56 58.5 56h11.709c0 0-.079 14.708-.138 25.368 0 8.206.386 15.868-.952 20.145z"></path>
-                                </svg>
+                        <div class="skill-card fade-in">
+                            <div class="skill-icon-wrapper">
+                                <div class="skill-icon-text js">JS</div>
                             </div>
-                            <h4>JavaScript</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="--progress: 75%"></div>
+                            <div class="skill-info">
+                                <h4>JavaScript</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="75"></div>
+                                </div>
+                                <span class="skill-percent">75%</span>
                             </div>
-                            <span class="skill-percent">75%</span>
                         </div>
                     </div>
                 </div>
-
-                <div class="skill-category">
+                <!-- Backend -->
+                <div class="skill-category" data-category="backend">
                     <h3 class="category-title">Backend & Database</h3>
                     <div class="skills-grid">
-                        <div class="skill-card" data-skill="80">
-                            <div class="skill-icon nodejs-icon">Node.js</div>
-                            <h4>Node.js & Express</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="--progress: 80%"></div>
+                        <div class="skill-card fade-in">
+                            <div class="skill-icon-wrapper">
+                                <div class="skill-icon-text node">Node</div>
                             </div>
-                            <span class="skill-percent">80%</span>
+                            <div class="skill-info">
+                                <h4>Node.js & Express</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="80"></div>
+                                </div>
+                                <span class="skill-percent">80%</span>
+                            </div>
                         </div>
-                        <div class="skill-card" data-skill="85">
-                            <div class="skill-icon">
-                                <svg viewBox="0 0 128 128">
-                                    <path fill="#00758F" d="M2.001 90.458h4.108v-16.223l6.36 14.143c.75 1.712 1.777 2.317 3.792 2.317s3.003-.605 3.753-2.317l6.36-14.143v16.223h4.108v-16.196c0-1.58-.632-2.345-1.936-2.739-3.121-.974-5.215-.131-6.163 1.976l-6.241 13.958-6.043-13.959c-.909-2.106-3.042-2.949-6.163-1.976-1.304.395-1.936 1.159-1.936 2.739v16.197zm32.713-14.023c0-4.227 2.927-6.985 7.233-6.985 4.268 0 7.195 2.758 7.195 6.985v6.508c0 4.227-2.927 6.985-7.195 6.985-4.307 0-7.233-2.758-7.233-6.985v-6.508zm4.107 6.508c0 2.356 1.304 3.605 3.126 3.605 1.823 0 3.088-1.25 3.088-3.605v-6.508c0-2.356-1.265-3.605-3.088-3.605-1.823 0-3.126 1.25-3.126 3.605v6.508zm19.477-9.988c-.829-1.789-2.56-2.53-4.779-2.53-2.219 0-4.029.741-4.858 2.53-.711 1.514-.711 3.027-.711 4.648v9.535h4.107v-9.535c0-1.621 0-2.739.395-3.475.356-.672 1.026-1.053 1.867-1.053s1.511.382 1.867 1.053c.395.737.395 1.854.395 3.475v9.535h4.107v-9.535c0-1.621 0-3.134-.711-4.648zm7.195 14.023h4.108v-7.117c0-1.62 0-2.738.395-3.474.356-.672 1.026-1.053 1.867-1.053.829 0 1.511.382 1.867 1.053.395.737.395 1.854.395 3.474v7.117h4.108v-7.117c0-1.621 0-3.134-.711-4.648-.829-1.789-2.56-2.53-4.78-2.53-2.218 0-4.029.741-4.858 2.53-.711 1.514-.711 3.027-.711 4.648v7.117h.829zm15.458-16.196v16.196h4.108v-7.117c0-1.621 0-2.739.395-3.475.356-.672 1.026-1.053 1.867-1.053s1.511.382 1.867 1.053c.395.737.395 1.854.395 3.475v7.117h4.108v-7.117c0-1.621 0-3.134-.711-4.648-.829-1.789-2.56-2.53-4.779-2.53-1.778 0-3.24.513-4.029 1.448v-1.316h-3.221v-.001z"></path>
-                                </svg>
+                        <div class="skill-card fade-in">
+                            <div class="skill-icon-wrapper">
+                                <div class="skill-icon-text mysql">SQL</div>
                             </div>
-                            <h4>MySQL</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="--progress: 85%"></div>
+                            <div class="skill-info">
+                                <h4>MySQL</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                                <span class="skill-percent">85%</span>
                             </div>
-                            <span class="skill-percent">85%</span>
                         </div>
                     </div>
                 </div>
-
-                <div class="skill-category">
+                <!-- Frontend -->
+                <div class="skill-category" data-category="frontend">
                     <h3 class="category-title">Frontend Development</h3>
                     <div class="skills-grid">
-                        <div class="skill-card" data-skill="80">
-                            <div class="skill-icon">
-                                <svg viewBox="0 0 128 128">
-                                    <path fill="#E44D26" d="M19.569 27l8.087 89.919 36.289 9.682 36.39-9.499L108.431 27H19.569z"></path>
-                                </svg>
+                        <div class="skill-card fade-in">
+                            <div class="skill-icon-wrapper">
+                                <div class="skill-icon-text html">HTML</div>
                             </div>
-                            <h4>HTML5</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="--progress: 80%"></div>
+                            <div class="skill-info">
+                                <h4>HTML5</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                                <span class="skill-percent">85%</span>
                             </div>
-                            <span class="skill-percent">80%</span>
                         </div>
-                        <div class="skill-card" data-skill="75">
-                            <div class="skill-icon">
-                                <svg viewBox="0 0 128 128">
-                                    <path fill="#1572B6" d="M19.67 26l8.069 90.493 36.206 10.05 36.307-10.063L108.33 26H19.67z"></path>
-                                </svg>
+                        <div class="skill-card fade-in">
+                            <div class="skill-icon-wrapper">
+                                <div class="skill-icon-text css">CSS</div>
                             </div>
-                            <h4>CSS3</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="--progress: 75%"></div>
+                            <div class="skill-info">
+                                <h4>CSS3</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="80"></div>
+                                </div>
+                                <span class="skill-percent">80%</span>
                             </div>
-                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="skill-card fade-in">
+                            <div class="skill-icon-wrapper">
+                                <div class="skill-icon-text boot">BS5</div>
+                            </div>
+                            <div class="skill-info">
+                                <h4>Bootstrap 5</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="80"></div>
+                                </div>
+                                <span class="skill-percent">80%</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="skill-category">
+                <!-- Tools -->
+                <div class="skill-category" data-category="tools">
                     <h3 class="category-title">Tools & Others</h3>
                     <div class="skills-grid">
-                        <div class="skill-card" data-skill="85">
-                            <div class="skill-icon">
-                                <svg viewBox="0 0 128 128">
-                                    <path fill="#F34F29" d="M124.737 58.378L69.621 3.264c-3.172-3.174-8.32-3.174-11.497 0L46.68 14.71l14.518 14.518c3.375-1.139 7.243-.375 9.932 2.314 2.703 2.706 3.461 6.607 2.294 9.993l13.992 13.993c3.385-1.167 7.292-.413 9.994 2.295 3.78 3.777 3.78 9.9 0 13.679a9.673 9.673 0 01-13.683 0 9.677 9.677 0 01-2.105-10.521L68.574 47.933l-.002 34.341a9.708 9.708 0 012.559 1.828c3.778 3.777 3.778 9.898 0 13.683-3.779 3.777-9.904 3.777-13.679 0-3.778-3.784-3.778-9.905 0-13.683a9.65 9.65 0 013.167-2.11V47.333a9.581 9.581 0 01-3.167-2.111c-2.862-2.86-3.551-7.06-2.083-10.576L41.056 20.333 3.264 58.123a8.133 8.133 0 000 11.5l55.117 55.114c3.174 3.174 8.32 3.174 11.499 0l54.858-54.858a8.135 8.135 0 00-.001-11.501z"></path>
-                                </svg>
+                        <div class="skill-card fade-in">
+                            <div class="skill-icon-wrapper">
+                                <div class="skill-icon-text git">Git</div>
                             </div>
-                            <h4>Git & GitHub</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="--progress: 85%"></div>
+                            <div class="skill-info">
+                                <h4>Git & GitHub</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                                <span class="skill-percent">85%</span>
                             </div>
-                            <span class="skill-percent">85%</span>
                         </div>
-                        <div class="skill-card" data-skill="80">
-                            <div class="skill-icon dsa-icon">DSA</div>
-                            <h4>Data Structures & Algorithms</h4>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="--progress: 80%"></div>
+                        <div class="skill-card fade-in">
+                            <div class="skill-icon-wrapper">
+                                <div class="skill-icon-text dsa">DSA</div>
                             </div>
-                            <span class="skill-percent">80%</span>
+                            <div class="skill-info">
+                                <h4>Data Structures & Algorithms</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="80"></div>
+                                </div>
+                                <span class="skill-percent">80%</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -299,73 +412,124 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- ====== PROJECTS SECTION ====== -->
     <section id="projects" class="projects-section">
         <div class="container">
-            <h2 class="section-title">
+            <h2 class="section-title fade-in">
                 <span class="title-number">03.</span> Featured Projects
             </h2>
             <div class="projects-grid">
-                <!-- Featured Project: Hospital Management System -->
-                <div class="project-card featured">
-                    <div class="featured-badge">⭐ Featured Project</div>
+
+                <!-- FLAGSHIP: Cafe Roadway -->
+                <div class="project-card project-flagship fade-in">
+                    <div class="flagship-glow"></div>
+                    <div class="project-ribbon">🏆 FLAGSHIP PROJECT</div>
                     <div class="project-header">
-                        <div class="project-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                            </svg>
-                        </div>
+                        <div class="project-icon-big">☕</div>
                         <div class="project-links">
-                            <a href="https://github.com/shudanshubora1410/hospital-management-system" target="_blank" class="project-link" title="View on GitHub">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                                </svg>
+                            <a href="https://github.com/shudanshubora1410/cafe-roadway" target="_blank" class="project-link" title="GitHub">
+                                <i class="bi bi-github"></i>
+                            </a>
+                            <a href="https://shudanshubora1410.github.io/cafe-roadway" target="_blank" class="project-link project-live" title="Live Demo">
+                                <i class="bi bi-box-arrow-up-right"></i>
                             </a>
                         </div>
                     </div>
-                    <h3 class="project-title">🏥 NovaCare Hospital Management System</h3>
+                    <h3 class="project-title">☕ Cafe Roadway</h3>
+                    <p class="project-subtitle">Premium Restaurant Website</p>
                     <p class="project-description">
-                        A comprehensive <span class="tech-highlight">full-stack healthcare solution</span> built during 
-                        <span class="tech-highlight">2nd year</span> with complete CRUD operations for patients, doctors, 
-                        appointments, and billing. Features include <span class="tech-highlight">role-based authentication</span>, 
-                        <span class="tech-highlight">automated 18% GST billing</span>, real-time dashboard with statistics, 
-                        and <span class="tech-highlight">24 RESTful API endpoints</span>. Designed for NovaCare Hospital, 
-                        Bangalore with Indian context (INR currency, Bangalore addresses).
+                        A <span class="tech-highlight">dark luxury restaurant website</span> with
+                        <span class="tech-highlight">43+ interactive features</span> built using only
+                        HTML, CSS & Vanilla JavaScript. Features include bill calculator, live menu
+                        search, dark/light mode, spin wheel, table booking, order tracking,
+                        and much more — all in just <span class="tech-highlight">3 files</span>!
                     </p>
+                    <div class="project-features">
+                        <span class="project-feature">🌙 Dark/Light Mode</span>
+                        <span class="project-feature">🧮 Bill Calculator</span>
+                        <span class="project-feature">🔍 Live Search</span>
+                        <span class="project-feature">🎁 Spin Wheel</span>
+                        <span class="project-feature">📅 Table Booking</span>
+                        <span class="project-feature">+38 more</span>
+                    </div>
+                    <div class="project-tech">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                        <span>Bootstrap 5</span>
+                        <span>Canvas API</span>
+                        <span>LocalStorage</span>
+                    </div>
+                    <div class="project-footer">
+                        <a href="https://shudanshubora1410.github.io/cafe-roadway" target="_blank" class="btn btn-primary btn-sm">
+                            <i class="bi bi-eye"></i> Live Demo
+                        </a>
+                        <a href="https://github.com/shudanshubora1410/cafe-roadway" target="_blank" class="btn btn-ghost btn-sm">
+                            <i class="bi bi-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hospital Management System -->
+                <div class="project-card project-featured fade-in">
+                    <div class="featured-badge">⭐ Featured</div>
+                    <div class="project-header">
+                        <div class="project-icon-big">🏥</div>
+                        <div class="project-links">
+                            <a href="https://github.com/shudanshubora1410/hospital-management-system" target="_blank" class="project-link" title="GitHub">
+                                <i class="bi bi-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">🏥 NovaCare HMS</h3>
+                    <p class="project-subtitle">Hospital Management System</p>
+                    <p class="project-description">
+                        A comprehensive <span class="tech-highlight">full-stack healthcare solution</span>
+                        built in 2nd year with complete CRUD operations for patients, doctors &
+                        appointments. Features <span class="tech-highlight">role-based auth</span>,
+                        <span class="tech-highlight">18% GST billing</span>,
+                        <span class="tech-highlight">24 REST APIs</span> and real-time dashboard.
+                    </p>
+                    <div class="project-highlights">
+                        <div class="project-highlight">
+                            <span class="highlight-num">24</span>
+                            <span class="highlight-label">API Endpoints</span>
+                        </div>
+                        <div class="project-highlight">
+                            <span class="highlight-num">3</span>
+                            <span class="highlight-label">User Roles</span>
+                        </div>
+                        <div class="project-highlight">
+                            <span class="highlight-num">18%</span>
+                            <span class="highlight-label">GST Auto-Calc</span>
+                        </div>
+                    </div>
                     <div class="project-tech">
                         <span>Node.js</span>
                         <span>Express.js</span>
                         <span>MySQL</span>
                         <span>JavaScript</span>
-                        <span>HTML5</span>
-                        <span>CSS3</span>
                         <span>REST API</span>
                     </div>
                 </div>
 
                 <!-- Email Sender -->
-                <div class="project-card">
+                <div class="project-card fade-in">
                     <div class="project-header">
-                        <div class="project-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
-                        </div>
+                        <div class="project-icon-big">📧</div>
                         <div class="project-links">
-                            <a href="https://github.com/shudanshubora1410/Email-Sender-Java" target="_blank" class="project-link" title="View on GitHub">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                                </svg>
+                            <a href="https://github.com/shudanshubora1410/Email-Sender-Java" target="_blank" class="project-link" title="GitHub">
+                                <i class="bi bi-github"></i>
                             </a>
                         </div>
                     </div>
-                    <h3 class="project-title">📧 Email Sender Application</h3>
+                    <h3 class="project-title">📧 Email Sender</h3>
+                    <p class="project-subtitle">Java Desktop Application</p>
                     <p class="project-description">
-                        A <span class="tech-highlight">Java Swing</span> desktop application for automated email sending 
-                        using <span class="tech-highlight">Gmail SMTP</span>. Features include support for multiple 
-                        recipients, file attachments via <span class="tech-highlight">JavaMail API</span>, and a 
-                        clean, intuitive user interface for efficient email composition and delivery.
+                        A <span class="tech-highlight">Java Swing</span> desktop application for
+                        automated email sending using <span class="tech-highlight">Gmail SMTP</span>.
+                        Supports multiple recipients, file attachments via
+                        <span class="tech-highlight">JavaMail API</span>.
                     </p>
                     <div class="project-tech">
                         <span>Java</span>
@@ -376,136 +540,186 @@
                 </div>
 
                 <!-- Portfolio Website -->
-                <div class="project-card">
+                <div class="project-card fade-in">
                     <div class="project-header">
-                        <div class="project-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                                <line x1="8" y1="21" x2="16" y2="21"></line>
-                                <line x1="12" y1="17" x2="12" y2="21"></line>
-                            </svg>
-                        </div>
+                        <div class="project-icon-big">💼</div>
                         <div class="project-links">
-                            <a href="https://shudanshubora1410.github.io/portfolio-website/" target="_blank" class="project-link" title="View Live">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                    <polyline points="15 3 21 3 21 9"></polyline>
-                                    <line x1="10" y1="14" x2="21" y2="3"></line>
-                                </svg>
+                            <a href="https://shudanshubora1410.github.io/portfolio-website/" target="_blank" class="project-link project-live" title="Live">
+                                <i class="bi bi-box-arrow-up-right"></i>
                             </a>
-                            <a href="https://github.com/shudanshubora1410/portfolio-website" target="_blank" class="project-link" title="View on GitHub">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                                </svg>
+                            <a href="https://github.com/shudanshubora1410/portfolio-website" target="_blank" class="project-link" title="GitHub">
+                                <i class="bi bi-github"></i>
                             </a>
                         </div>
                     </div>
-                    <h3 class="project-title">💼 Developer Portfolio Website</h3>
+                    <h3 class="project-title">💼 Portfolio Website</h3>
+                    <p class="project-subtitle">Personal Developer Portfolio</p>
                     <p class="project-description">
-                        Personal portfolio website showcasing projects, skills, and achievements with a 
-                        <span class="tech-highlight">modern, responsive design</span>. Features smooth scrolling, 
-                        typing animations, and interactive elements built with <span class="tech-highlight">vanilla JavaScript</span>.
+                        Personal portfolio website with <span class="tech-highlight">modern design</span>,
+                        smooth animations, typing effects and interactive elements built with
+                        <span class="tech-highlight">vanilla JavaScript</span>.
                     </p>
                     <div class="project-tech">
                         <span>HTML5</span>
                         <span>CSS3</span>
                         <span>JavaScript</span>
-                        <span>Responsive Design</span>
                     </div>
                 </div>
 
                 <!-- LeetCode Solutions -->
-                <div class="project-card">
+                <div class="project-card fade-in">
                     <div class="project-header">
-                        <div class="project-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="16 18 22 12 16 6"></polyline>
-                                <polyline points="8 6 2 12 8 18"></polyline>
-                            </svg>
-                        </div>
+                        <div class="project-icon-big">🧑‍💻</div>
                         <div class="project-links">
-                            <a href="https://github.com/shudanshubora1410/LeetCode-Java" target="_blank" class="project-link" title="View on GitHub">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                                </svg>
+                            <a href="https://github.com/shudanshubora1410/LeetCode-Java" target="_blank" class="project-link" title="GitHub">
+                                <i class="bi bi-github"></i>
                             </a>
                         </div>
                     </div>
-                    <h3 class="project-title">🧑‍💻 LeetCode Java Solutions</h3>
+                    <h3 class="project-title">🧑‍💻 LeetCode Solutions</h3>
+                    <p class="project-subtitle">DSA Practice in Java</p>
                     <p class="project-description">
-                        Comprehensive collection of <span class="tech-highlight">Data Structures and Algorithms</span> 
-                        problems solved in <span class="tech-highlight">Java</span>. Each solution includes clean code, 
-                        optimal approaches, and complexity analysis to strengthen problem-solving skills.
+                        Comprehensive collection of <span class="tech-highlight">DSA problems</span>
+                        solved in <span class="tech-highlight">Java</span> with clean code,
+                        optimal approaches and complexity analysis.
                     </p>
                     <div class="project-tech">
                         <span>Java</span>
                         <span>DSA</span>
-                        <span>LeetCode</span>
                         <span>Algorithms</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== CONTACT SECTION ====== -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title fade-in">
+                <span class="title-number">04.</span> Get In Touch
+            </h2>
+            <div class="contact-wrapper">
+                <div class="contact-left fade-in">
+                    <h3 class="contact-heading">Let's <span class="text-accent">Connect!</span></h3>
+                    <p class="contact-desc">
+                        I'm currently open to <strong>internship opportunities</strong>,
+                        <strong>freelance projects</strong>, and <strong>collaborations</strong>.
+                        Whether you have a project idea or just want to say hi — reach out!
+                    </p>
+                    <div class="contact-info-list">
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon"><i class="bi bi-envelope-fill"></i></div>
+                            <div>
+                                <span class="contact-info-label">Email</span>
+                                <a href="mailto:shudanshubora1410@gmail.com" class="contact-info-value">
+                                    shudanshubora1410@gmail.com
+                                </a>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon"><i class="bi bi-linkedin"></i></div>
+                            <div>
+                                <span class="contact-info-label">LinkedIn</span>
+                                <a href="https://www.linkedin.com/in/shudanshubora/" target="_blank" class="contact-info-value">
+                                    linkedin.com/in/shudanshubora
+                                </a>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon"><i class="bi bi-github"></i></div>
+                            <div>
+                                <span class="contact-info-label">GitHub</span>
+                                <a href="https://github.com/shudanshubora1410" target="_blank" class="contact-info-value">
+                                    github.com/shudanshubora1410
+                                </a>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon"><i class="bi bi-geo-alt-fill"></i></div>
+                            <div>
+                                <span class="contact-info-label">Location</span>
+                                <span class="contact-info-value">Greater Noida, India 🇮🇳</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-social">
+                        <a href="https://github.com/shudanshubora1410" target="_blank" class="contact-social-btn github">
+                            <i class="bi bi-github"></i> GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/shudanshubora/" target="_blank" class="contact-social-btn linkedin">
+                            <i class="bi bi-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="https://leetcode.com/shudanshubora1410" target="_blank" class="contact-social-btn leetcode">
+                            <i class="bi bi-code-square"></i> LeetCode
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-right fade-in">
+                    <div class="contact-form-card">
+                        <h4>Send a Message</h4>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label>Your Name</label>
+                                <input type="text" id="contactName" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" id="contactEmail" placeholder="john@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Subject</label>
+                                <input type="text" id="contactSubject" placeholder="Internship Opportunity">
+                            </div>
+                            <div class="form-group">
+                                <label>Message</label>
+                                <textarea id="contactMessage" rows="4" placeholder="Hi Shudanshu, I'd like to discuss..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-full">
+                                <i class="bi bi-send-fill"></i> Send Message
+                            </button>
+                        </form>
+                        <div class="form-success" id="formSuccess" style="display:none;">
+                            <div class="success-icon">🎉</div>
+                            <h4>Message Sent!</h4>
+                            <p>Thanks! I'll get back to you soon.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="title-number">04.</span> Get In Touch
-            </h2>
-            <div class="contact-content">
-                <div class="contact-text">
-                    <h3>Let's Connect!</h3>
-                    <p>
-                        I'm currently open to <span class="highlight">internship opportunities</span>, 
-                        <span class="highlight">freelance projects</span>, and <span class="highlight">collaboration</span>. 
-                        Whether you have a question, want to discuss technology, or just want to say hi, 
-                        feel free to reach out!
-                    </p>
-                </div>
-                <div class="contact-cards">
-                    <a href="mailto:shudanshubora1410@gmail.com" class="contact-card">
-                        <div class="contact-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
-                        </div>
-                        <h4>Email</h4>
-                        <p>shudanshubora1410@gmail.com</p>
-                    </a>
-                    <a href="https://github.com/shudanshubora1410" target="_blank" class="contact-card">
-                        <div class="contact-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                            </svg>
-                        </div>
-                        <h4>GitHub</h4>
-                        <p>@shudanshubora1410</p>
-                    </a>
-                    <a href="https://www.linkedin.com/in/shudanshubora/" target="_blank" class="contact-card">
-                        <div class="contact-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                            </svg>
-                        </div>
-                        <h4>LinkedIn</h4>
-                        <p>Shudanshu Bora</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
+    <!-- ====== FOOTER ====== -->
     <footer class="footer">
-        <div class="container">
-            <p>Designed & Built by <span class="highlight">Shudanshu Bora</span></p>
-            <p class="footer-tech">Built with HTML, CSS & JavaScript | Hosted on GitHub Pages</p>
-            <p class="footer-copyright">© 2025 Shudanshu Bora | All Rights Reserved</p>
+        <div class="footer-content">
+            <div class="footer-logo">&lt;SB/&gt;</div>
+            <p class="footer-tagline">Building the future, one line at a time.</p>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+                <a href="https://shudanshubora1410.github.io/cafe-roadway" target="_blank">☕ Cafe Roadway</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://github.com/shudanshubora1410" target="_blank"><i class="bi bi-github"></i></a>
+                <a href="https://www.linkedin.com/in/shudanshubora/" target="_blank"><i class="bi bi-linkedin"></i></a>
+                <a href="mailto:shudanshubora1410@gmail.com"><i class="bi bi-envelope-fill"></i></a>
+                <a href="https://leetcode.com/shudanshubora1410" target="_blank"><i class="bi bi-code-square"></i></a>
+            </div>
+            <p class="footer-copyright">
+                Designed & Built with ❤️ by <span class="highlight">Shudanshu Bora</span> |
+                © <span id="footerYear">2025</span> All Rights Reserved
+            </p>
         </div>
     </footer>
+
+    <!-- ====== BACK TO TOP ====== -->
+    <button class="back-to-top" id="backToTop" title="Back to top">
+        <i class="bi bi-chevron-up"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>
