@@ -551,3 +551,86 @@ a.contact-info-value:hover { color:var(--accent-primary); }
     .navbar, .cursor-ring, .cursor-dot, .back-to-top, .scroll-indicator, #preloader { display:none !important; }
     body { background:white; color:black; }
 }
+
+/* ==================== HOMYZ PROJECT CARD ==================== */
+.project-homyz {
+    border: 2px solid rgba(231, 76, 60, 0.25);
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.04), rgba(243, 156, 18, 0.02));
+    position: relative;
+}
+
+.project-homyz:hover {
+    border-color: rgba(231, 76, 60, 0.5);
+    box-shadow: 0 20px 60px rgba(231, 76, 60, 0.12);
+}
+
+.homyz-badge {
+    position: absolute;
+    top: -1px;
+    right: 20px;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    padding: 5px 16px;
+    border-radius: 0 0 var(--radius) var(--radius);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.project-homyz .project-subtitle {
+    color: #e74c3c;
+}
+
+.project-homyz .highlight-num {
+    color: #e74c3c;
+}
+
+.project-homyz-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 8px 0 4px;
+}
+
+.project-homyz-features span {
+    font-size: 0.72rem;
+    font-family: var(--font-code);
+    padding: 4px 12px;
+    border-radius: 50px;
+    background: rgba(231, 76, 60, 0.08);
+    border: 1px solid rgba(231, 76, 60, 0.18);
+    color: #ff6b6b;
+    transition: var(--transition);
+}
+
+.project-homyz-features span:hover {
+    background: rgba(231, 76, 60, 0.15);
+    border-color: rgba(231, 76, 60, 0.35);
+    color: #ff8a8a;
+}
+
+.project-homyz:hover .project-tech span {
+    border-color: rgba(231, 76, 60, 0.2);
+    color: var(--text-secondary);
+}
+
+.btn-homyz {
+    background: linear-gradient(135deg, #e74c3c, #c0392b) !important;
+    color: white !important;
+}
+
+.btn-homyz:hover {
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.35) !important;
+    color: white !important;
+}
+
+/* Fix grid: Homyz takes left, NovaCare takes right on desktop */
+@media (min-width: 1025px) {
+    .projects-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .project-flagship {
+        grid-column: 1 / -1;
+    }
+}
