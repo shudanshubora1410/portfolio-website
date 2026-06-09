@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found | Shudanshu Bora</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'JetBrains Mono', monospace;
+      background: #0a0a0f;
+      color: #f5f5f7;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      overflow: hidden;
+      position: relative;
+    }
+    /* Animated background orbs */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    .orb-1 { width: 400px; height: 400px; background: #6366f1; top: -10%; left: -10%; animation: float 20s ease-in-out infinite; }
+    .orb-2 { width: 500px; height: 500px; background: #ec4899; bottom: -10%; right: -10%; animation: float 25s ease-in-out infinite reverse; }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(50px, 50px); }
+    }
+    .container {
+      max-width: 600px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    .error-code {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(6rem, 20vw, 12rem);
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glitch 3s ease-in-out infinite;
+    }
+    @keyframes glitch {
+      0%, 100% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(2px, -2px); }
+      60% { transform: translate(-1px, 1px); }
+      80% { transform: translate(1px, -1px); }
+    }
+    .error-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #f5f5f7;
+    }
+    .error-text {
+      color: #a1a1aa;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .terminal {
+      background: rgba(20, 20, 30, 0.7);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      text-align: left;
+      margin-bottom: 2rem;
+      font-size: 0.875rem;
+      line-height: 1.7;
+    }
+    .terminal-line {
+      margin-bottom: 0.5rem;
+      word-break: break-all;
+    }
+    .prompt { color: #50fa7b; font-weight: 600; }
+    .error { color: #ff5555; }
+    .info { color: #8be9fd; }
+    .warn { color: #ffb86c; }
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 16px;
+      background: #50fa7b;
+      animation: blink 1s step-end infinite;
+      vertical-align: middle;
+      margin-left: 4px;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 2rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 50px -10px rgba(99,102,241,0.5);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: #f5f5f7;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .btn-ghost:hover {
+      border-color: #6366f1;
+      color: #6366f1;
+    }
+    .countdown {
+      margin-top: 1.5rem;
+      color: #71717a;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .countdown span {
+      color: #6366f1;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="container">
+    <div class="error-code">404</div>
+    <h1 class="error-title">Lost in the code?</h1>
+    <p class="error-text">The page you're looking for doesn't exist or has been moved.</p>
+
+    <div class="terminal">
+      <div class="terminal-line"><span class="prompt">shudanshu@portfolio</span>:<span class="info">~</span>$ find /requested-page</div>
+      <div class="terminal-line"><span class="error">find: '/requested-page': No such file or directory</span></div>
+      <div class="terminal-line"><span class="prompt">shudanshu@portfolio</span>:<span class="info">~</span>$ <span class="warn">stack trace:</span></div>
+      <div class="terminal-line">&nbsp;&nbsp;<span class="error">at Visitor.tryToFind('mysterious-page')</span></div>
+      <div class="terminal-line">&nbsp;&nbsp;<span class="error">at Browser.navigate('not-found')</span></div>
+      <div class="terminal-line">&nbsp;&nbsp;<span class="error">at Portal.loadPage('void')</span></div>
+      <div class="terminal-line"><span class="prompt">shudanshu@portfolio</span>:<span class="info">~</span>$ <span class="warn">Suggestion:</span> redirect to home</div>
+      <div class="terminal-line"><span class="prompt">shudanshu@portfolio</span>:<span class="info">~</span>$ <span class="cursor"></span></div>
+    </div>
+
+    <div class="btn-group">
+      <a href="/" class="btn btn-primary">
+        🏠 Go Home
+      </a>
+      <a href="/#contact" class="btn btn-ghost">
+        📧 Report Issue
+      </a>
+    </div>
+
+    <div class="countdown">
+      Auto-redirecting in <span id="countdown">10</span> seconds...
+    </div>
+  </div>
+
+  <script>
+    // Auto-redirect countdown
+    let seconds = 10;
+    const countdownEl = document.getElementById('countdown');
+    const timer = setInterval(() => {
+      seconds--;
+      countdownEl.textContent = seconds;
+      if (seconds <= 0) {
+        clearInterval(timer);
+        window.location.href = '/';
+      }
+    }, 1000);
+
+    // Konami code on 404 — bonus easter egg
+    const konami = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+    let input = [];
+    document.addEventListener('keydown', (e) => {
+      input.push(e.key);
+      if (input.length > konami.length) input.shift();
+      if (input.join(',') === konami.join(',')) {
+        clearInterval(timer);
+        countdownEl.parentElement.innerHTML = '🎉 KONAMI ACTIVATED! Redirect cancelled. Enjoy the void.';
+        document.body.style.animation = 'glitch 0.2s infinite';
+      }
+    });
+  </script>
+</body>
+</html>

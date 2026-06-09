@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shudanshu Sanjay Bora — Java Developer & Full Stack Engineer">
+  <meta name="author" content="Shudanshu Sanjay Bora">
+  <meta name="theme-color" content="#0a0a0f">
+  <title>Shudanshu Bora — Java Developer & Full Stack Engineer</title>
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/images/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Shudanshu Sanjay Bora — Java Developer & Full Stack Engineer">
+  <meta property="og:description" content="Building robust backends with Spring Boot and polished frontends with modern JavaScript.">
+  <meta property="og:image" content="assets/images/profile.jpg">
+
+  <link rel="canonical" href="https://shudanshubora1410.github.io/portfolio-website/">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Prism.js for code syntax highlighting -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Skip link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Loader -->
+  <div id="page-loader" role="status" aria-label="Loading">
+    <div class="loader-content">
+      <div class="loader-text">
+        <span>S</span><span>H</span><span>U</span><span>D</span><span>A</span><span>N</span><span>S</span><span>H</span><span>U</span>
+      </div>
+      <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Animated background -->
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- Noise -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- ============================================
+       NAVIGATION
+       ============================================ -->
+  <header class="nav-header" role="banner">
+    <nav class="nav" aria-label="Main navigation">
+      <div class="container nav-container">
+
+        <a href="#hero" class="nav-logo" data-cursor="pointer" aria-label="Back to top">
+          <span class="logo-mark">SB</span>
+          <span class="logo-dot"></span>
+        </a>
+
+        <ul class="nav-links" role="list">
+          <li><a href="#about" class="nav-link" data-cursor="pointer"><span class="nav-link-num">01</span>About</a></li>
+          <li><a href="#journey" class="nav-link" data-cursor="pointer"><span class="nav-link-num">02</span>Journey</a></li>
+          <li><a href="#skills" class="nav-link" data-cursor="pointer"><span class="nav-link-num">03</span>Skills</a></li>
+          <li><a href="#projects" class="nav-link" data-cursor="pointer"><span class="nav-link-num">04</span>Work</a></li>
+          <li><a href="#code" class="nav-link" data-cursor="pointer"><span class="nav-link-num">05</span>Code</a></li>
+          <li><a href="#contact" class="nav-link" data-cursor="pointer"><span class="nav-link-num">06</span>Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button id="cmd-palette-btn" class="cmd-btn" aria-label="Open command palette" data-cursor="pointer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+            <span>Search</span>
+            <kbd>⌘K</kbd>
+          </button>
+
+          <button id="sound-toggle" class="icon-btn" aria-label="Toggle sound effects" data-cursor="pointer">
+            <svg class="icon-sound-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+            <svg class="icon-sound-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+          </button>
+
+          <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme" data-cursor="pointer">
+            <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+
+          <button class="nav-hamburger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+        <ul class="mobile-nav-links" role="list">
+          <li><a href="#about" class="mobile-nav-link"><span>01</span>About</a></li>
+          <li><a href="#journey" class="mobile-nav-link"><span>02</span>Journey</a></li>
+          <li><a href="#skills" class="mobile-nav-link"><span>03</span>Skills</a></li>
+          <li><a href="#projects" class="mobile-nav-link"><span>04</span>Work</a></li>
+          <li><a href="#code" class="mobile-nav-link"><span>05</span>Code</a></li>
+          <li><a href="#testimonials" class="mobile-nav-link"><span>06</span>Reviews</a></li>
+          <li><a href="#terminal" class="mobile-nav-link"><span>07</span>Terminal</a></li>
+          <li><a href="#contact" class="mobile-nav-link"><span>08</span>Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ============================================
+       SMART GREETING TOAST
+       ============================================ -->
+  <div id="greeting-toast" class="greeting-toast" aria-hidden="true">
+    <span id="greeting-text"></span>
+    <button class="greeting-close" aria-label="Close greeting">×</button>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ============================================
+         HERO with 3D Background
+         ============================================ -->
+    <section id="hero" class="hero" aria-labelledby="hero-heading">
+      <canvas id="hero-3d-canvas" aria-hidden="true"></canvas>
+      <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-badge" data-reveal>
+            <span class="badge-dot"></span>
+            <span>Available for internships</span>
+          </div>
+
+          <h1 id="hero-heading" class="hero-name" data-reveal>
+            <span class="hero-name-line">Shudanshu</span>
+            <span class="hero-name-line hero-name-accent">Bora.</span>
+          </h1>
+
+          <div class="hero-role-wrapper" data-reveal>
+            <span class="hero-role-prefix">I'm a</span>
+            <span class="hero-role" id="typewriter"></span>
+            <span class="typewriter-cursor">|</span>
+          </div>
+
+          <p class="hero-tagline" data-reveal>
+            Building robust backends with <span class="text-highlight">Spring Boot</span> and polished frontends with <span class="text-highlight">modern JavaScript</span>. Currently pursuing B.Tech IT at GLBITM.
+          </p>
+
+          <div class="hero-actions" data-reveal>
+            <a href="#projects" class="btn btn-primary btn-lg magnetic" data-cursor="pointer">
+              <span>View My Work</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              <span class="btn-glow"></span>
+            </a>
+            <a href="assets/files/cv.pdf" class="btn btn-ghost btn-lg magnetic" download data-cursor="pointer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              <span>Download CV</span>
+            </a>
+          </div>
+
+          <div class="hero-meta" data-reveal>
+            <a href="https://github.com/shudanshubora1410" class="hero-social" target="_blank" rel="noopener noreferrer" aria-label="GitHub" data-cursor="pointer">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/shudanshubora/" class="hero-social" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" data-cursor="pointer">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
+            </a>
+            <a href="mailto:shudanshubora1410@gmail.com" class="hero-social" aria-label="Email" data-cursor="pointer">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual" data-reveal>
+          <div class="hero-photo-stack">
+            <div class="photo-glow"></div>
+            <div class="photo-frame magnetic-photo">
+              <img src="assets/images/profile.jpg" alt="Shudanshu Sanjay Bora" class="hero-photo" width="500" height="500">
+              <div class="photo-shine"></div>
+            </div>
+            <div class="floating-card floating-card-1">
+              <div class="card-icon">☕</div>
+              <div class="card-text"><strong>Java</strong><span>Backend</span></div>
+            </div>
+            <div class="floating-card floating-card-2">
+              <div class="card-icon">⚡</div>
+              <div class="card-text"><strong>Spring Boot</strong><span>3.2</span></div>
+            </div>
+            <div class="floating-card floating-card-3">
+              <div class="card-icon">🚀</div>
+              <div class="card-text"><strong>Full Stack</strong><span>Developer</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-scroll-hint">
+        <span>Scroll to explore</span>
+        <div class="scroll-line"></div>
+      </div>
+
+      <div class="hero-marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>JAVA</span><span class="marquee-dot">●</span>
+          <span>SPRING BOOT</span><span class="marquee-dot">●</span>
+          <span>MYSQL</span><span class="marquee-dot">●</span>
+          <span>JAVASCRIPT</span><span class="marquee-dot">●</span>
+          <span>REST APIs</span><span class="marquee-dot">●</span>
+          <span>DSA</span><span class="marquee-dot">●</span>
+          <span>DOCKER</span><span class="marquee-dot">●</span>
+          <span>JWT AUTH</span><span class="marquee-dot">●</span>
+          <span>JAVA</span><span class="marquee-dot">●</span>
+          <span>SPRING BOOT</span><span class="marquee-dot">●</span>
+          <span>MYSQL</span><span class="marquee-dot">●</span>
+          <span>JAVASCRIPT</span><span class="marquee-dot">●</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         ABOUT (with Reading Time)
+         ============================================ -->
+    <section id="about" class="section" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-num">01 / About <span class="read-time">· 2 min read</span></span>
+          <h2 id="about-heading" class="section-title">
+            A developer who <span class="text-gradient">builds with intent</span>
+          </h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text-col">
+            <p class="about-lead" data-reveal>
+              I'm a 4th-year B.Tech IT student at <strong>GL Bajaj Institute of Technology and Management</strong>, Greater Noida, with hands-on training in Core Java, DSA, and Full Stack Web Development from Incapp IT Training Institute.
+            </p>
+            <p class="about-text" data-reveal>
+              I architected <strong>ResuMatch Pro</strong> — a production-grade ATS platform with <strong>210+ files</strong>, a custom rule-based NLP engine, and a 10-stage processing pipeline — as my Final Year project.
+            </p>
+            <p class="about-text" data-reveal>
+              When I'm not coding, I'm solving DSA problems on LeetCode, exploring new Spring Boot features, or designing pixel-perfect interfaces from scratch.
+            </p>
+
+            <div class="about-info-grid" data-reveal>
+              <div class="info-item">
+                <span class="info-label">Location</span>
+                <span class="info-value">Greater Noida, India</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Education</span>
+                <span class="info-value">B.Tech IT '27</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Status</span>
+                <span class="info-value"><span class="status-dot"></span>Open to Work</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Focus</span>
+                <span class="info-value">Java + Full Stack</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-stats" data-reveal>
+            <div class="stat-card glass-card">
+              <span class="stat-number" data-target="5" data-suffix="+">0</span>
+              <span class="stat-label">Projects Built</span>
+              <div class="stat-bar"><div class="stat-bar-fill" data-width="80"></div></div>
+            </div>
+            <div class="stat-card glass-card">
+              <span class="stat-number" data-target="210" data-suffix="+">0</span>
+              <span class="stat-label">Files in ResuMatch</span>
+              <div class="stat-bar"><div class="stat-bar-fill" data-width="95"></div></div>
+            </div>
+            <div class="stat-card glass-card">
+              <span class="stat-number" data-target="43" data-suffix="+">0</span>
+              <span class="stat-label">Features in Cafe Roadway</span>
+              <div class="stat-bar"><div class="stat-bar-fill" data-width="85"></div></div>
+            </div>
+            <div class="stat-card glass-card">
+              <span class="stat-number" data-target="3" data-suffix="">0</span>
+              <span class="stat-label">Certifications</span>
+              <div class="stat-bar"><div class="stat-bar-fill" data-width="60"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         🆕 JOURNEY TIMELINE
+         ============================================ -->
+    <section id="journey" class="section journey-section" aria-labelledby="journey-heading">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-num">02 / Journey</span>
+          <h2 id="journey-heading" class="section-title">
+            My <span class="text-gradient">timeline</span>
+          </h2>
+          <p class="section-subtitle">Every milestone that shaped who I am as a developer</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-line"></div>
+
+          <div class="timeline-item" data-reveal>
+            <div class="timeline-marker" data-year="2019">
+              <span class="timeline-icon">🎓</span>
+            </div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-date">2019 — 2021</span>
+              <h3 class="timeline-title">Class 10 — CBSE</h3>
+              <p class="timeline-org">S. D. Jain Modern School</p>
+              <p class="timeline-desc">Completed Class 10 with <strong>92%</strong>, building the foundation for my journey into Science and technology.</p>
+              <div class="timeline-tags">
+                <span>Academics</span>
+                <span>92%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-reveal>
+            <div class="timeline-marker" data-year="2021">
+              <span class="timeline-icon">🔬</span>
+            </div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-date">2021 — 2023</span>
+              <h3 class="timeline-title">Class 12 — Science (PCM)</h3>
+              <p class="timeline-org">S. D. Jain Modern School · CBSE</p>
+              <p class="timeline-desc">Specialized in Physics, Chemistry, and Mathematics with <strong>86%</strong>, sparking my interest in problem-solving and logic.</p>
+              <div class="timeline-tags">
+                <span>PCM</span>
+                <span>86%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-reveal>
+            <div class="timeline-marker" data-year="2023">
+              <span class="timeline-icon">🚀</span>
+            </div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-date">August 2023</span>
+              <h3 class="timeline-title">B.Tech IT Begins</h3>
+              <p class="timeline-org">GL Bajaj Institute of Technology and Management</p>
+              <p class="timeline-desc">Started my B.Tech in Information Technology at GLBITM, Greater Noida — the official beginning of my dev journey.</p>
+              <div class="timeline-tags">
+                <span>B.Tech IT</span>
+                <span>GLBITM</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-reveal>
+            <div class="timeline-marker" data-year="2025">
+              <span class="timeline-icon">💡</span>
+            </div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-date">2025</span>
+              <h3 class="timeline-title">Core Java + DSA + Web Dev Training</h3>
+              <p class="timeline-org">Incapp IT Training Institute</p>
+              <p class="timeline-desc">Completed <strong>3 professional certifications</strong>: Core Java, Data Structures & Algorithms (Java), and Full Stack Web Development. Built 200+ hands-on assignments.</p>
+              <div class="timeline-tags">
+                <span>Java</span>
+                <span>DSA</span>
+                <span>Web Dev</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-reveal>
+            <div class="timeline-marker" data-year="2026">
+              <span class="timeline-icon">🍽️</span>
+            </div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-date">2026</span>
+              <h3 class="timeline-title">Cafe Roadway Launched</h3>
+              <p class="timeline-org">Self-initiated project</p>
+              <p class="timeline-desc">Built a dark-luxury restaurant website with <strong>43+ features</strong> using only Vanilla JavaScript, HTML, and CSS — zero frameworks.</p>
+              <div class="timeline-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>Vanilla JS</span>
+                <span>43 Features</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-reveal>
+            <div class="timeline-marker" data-year="2026">
+              <span class="timeline-icon">🏠</span>
+            </div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-date">2026</span>
+              <h3 class="timeline-title">Homyz — Incapp Final Project</h3>
+              <p class="timeline-org">Real Estate Platform · Delhi NCR</p>
+              <p class="timeline-desc">Selected as the official <strong>Final Project</strong> at Incapp. Used Google Sheets API as a serverless backend — no traditional server needed.</p>
+              <div class="timeline-tags">
+                <span>Bootstrap 5</span>
+                <span>Google Sheets API</span>
+                <span>Real Estate</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item timeline-highlight" data-reveal>
+            <div class="timeline-marker" data-year="2026">
+              <span class="timeline-icon">🏆</span>
+            </div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-date">2026 — Current</span>
+              <h3 class="timeline-title">ResuMatch Pro — Final Year Project</h3>
+              <p class="timeline-org">GLBITM · Team of 5</p>
+              <p class="timeline-desc">Architected and built a production-grade ATS platform with <strong>210+ files</strong>, custom rule-based NLP engine, 10-stage pipeline, and 500+ skill vocabulary across 9 domains.</p>
+              <div class="timeline-tags">
+                <span>Java 17</span>
+                <span>Spring Boot 3.2</span>
+                <span>MySQL</span>
+                <span>JWT</span>
+                <span>Docker</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item timeline-future" data-reveal>
+            <div class="timeline-marker" data-year="2027">
+              <span class="timeline-icon">🎯</span>
+            </div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-date">June 2027</span>
+              <h3 class="timeline-title">B.Tech Graduation</h3>
+              <p class="timeline-org">Goal Milestone</p>
+              <p class="timeline-desc">Graduating with hands-on experience in <strong>Spring Boot, microservices, and full-stack development</strong>. Ready to ship production code on Day 1.</p>
+              <div class="timeline-tags">
+                <span>Graduation</span>
+                <span>Ready to Hire</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SKILLS
+         ============================================ -->
+    <section id="skills" class="section skills-section" aria-labelledby="skills-heading">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-num">03 / Skills</span>
+          <h2 id="skills-heading" class="section-title">
+            My <span class="text-gradient">technical toolkit</span>
+          </h2>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card glass-card tilt-card" data-reveal>
+            <div class="skill-card-glow"></div>
+            <div class="skill-icon-wrap"><span class="skill-emoji">☕</span></div>
+            <h3 class="skill-name">Java — Core & Advanced</h3>
+            <p class="skill-desc">OOP, Collections, Multithreading, File I/O, Lambda Expressions, Swing GUI programming.</p>
+            <div class="skill-meta">
+              <div class="skill-bar"><div class="skill-bar-fill" data-level="90"></div></div>
+              <span class="skill-percent">90%</span>
+            </div>
+          </article>
+
+          <article class="skill-card glass-card tilt-card" data-reveal>
+            <div class="skill-card-glow"></div>
+            <div class="skill-icon-wrap"><span class="skill-emoji">🌱</span></div>
+            <h3 class="skill-name">Spring Boot & Backend</h3>
+            <p class="skill-desc">Spring Boot 3.2, Spring Security 6, JPA, Hibernate, JWT Auth, RESTful APIs.</p>
+            <div class="skill-meta">
+              <div class="skill-bar"><div class="skill-bar-fill" data-level="85"></div></div>
+              <span class="skill-percent">85%</span>
+            </div>
+          </article>
+
+          <article class="skill-card glass-card tilt-card" data-reveal>
+            <div class="skill-card-glow"></div>
+            <div class="skill-icon-wrap"><span class="skill-emoji">⚡</span></div>
+            <h3 class="skill-name">Frontend Development</h3>
+            <p class="skill-desc">HTML5, CSS3, Vanilla JS, ES6+, DOM manipulation, Bootstrap 5, responsive design.</p>
+            <div class="skill-meta">
+              <div class="skill-bar"><div class="skill-bar-fill" data-level="92"></div></div>
+              <span class="skill-percent">92%</span>
+            </div>
+          </article>
+
+          <article class="skill-card glass-card tilt-card" data-reveal>
+            <div class="skill-card-glow"></div>
+            <div class="skill-icon-wrap"><span class="skill-emoji">🗄️</span></div>
+            <h3 class="skill-name">Databases — MySQL</h3>
+            <p class="skill-desc">MySQL 8.0, SQL queries, relational design, Spring Data JPA, Hibernate ORM.</p>
+            <div class="skill-meta">
+              <div class="skill-bar"><div class="skill-bar-fill" data-level="80"></div></div>
+              <span class="skill-percent">80%</span>
+            </div>
+          </article>
+
+          <article class="skill-card glass-card tilt-card" data-reveal>
+            <div class="skill-card-glow"></div>
+            <div class="skill-icon-wrap"><span class="skill-emoji">🧠</span></div>
+            <h3 class="skill-name">DSA & Problem Solving</h3>
+            <p class="skill-desc">Arrays, Linked Lists, Trees, Graphs, DP, Backtracking — all solved in Java.</p>
+            <div class="skill-meta">
+              <div class="skill-bar"><div class="skill-bar-fill" data-level="82"></div></div>
+              <span class="skill-percent">82%</span>
+            </div>
+          </article>
+
+          <article class="skill-card glass-card tilt-card" data-reveal>
+            <div class="skill-card-glow"></div>
+            <div class="skill-icon-wrap"><span class="skill-emoji">🐳</span></div>
+            <h3 class="skill-name">DevOps & Tools</h3>
+            <p class="skill-desc">Git, Docker, Docker Compose, Nginx, GitHub Pages, IntelliJ, Postman.</p>
+            <div class="skill-meta">
+              <div class="skill-bar"><div class="skill-bar-fill" data-level="75"></div></div>
+              <span class="skill-percent">75%</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         PROJECTS (with Click-to-Modal)
+         ============================================ -->
+    <section id="projects" class="section" aria-labelledby="projects-heading">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-num">04 / Work</span>
+          <h2 id="projects-heading" class="section-title">
+            Selected <span class="text-gradient">projects</span>
+          </h2>
+          <p class="section-subtitle">Click any project to see the full case study</p>
+        </div>
+
+        <div class="projects-list">
+
+          <article class="project-row clickable-project" data-project="resumatch" data-reveal>
+            <div class="project-number">01</div>
+            <div class="project-visual tilt-card">
+              <div class="project-image-wrap">
+                <img src="assets/images/project1.webp" alt="ResuMatch Pro dashboard" class="project-image" loading="lazy" width="700" height="450">
+                <div class="project-image-overlay">
+                  <span class="project-overlay-text">View Case Study →</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-tag-featured">Final Year Project · 6 months</span>
+              <h3 class="project-title">ResuMatch Pro</h3>
+              <p class="project-desc">A production-grade ATS and Recruitment Intelligence Platform with <strong>210+ files</strong>, custom rule-based NLP engine, 10-stage pipeline, and 500+ skill vocabulary.</p>
+              <div class="project-stack">
+                <span>Java 17</span><span>Spring Boot</span><span>MySQL</span><span>JWT</span><span>Docker</span>
+              </div>
+              <div class="project-meta">
+                <span class="project-meta-item">📁 210+ files</span>
+                <span class="project-meta-item">⚡ 16 DB tables</span>
+                <span class="project-meta-item">🎯 Click to explore</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-row project-row-reverse clickable-project" data-project="cafe-roadway" data-reveal>
+            <div class="project-number">02</div>
+            <div class="project-visual tilt-card">
+              <div class="project-image-wrap">
+                <img src="assets/images/project2.jpg" alt="Cafe Roadway restaurant website" class="project-image" loading="lazy" width="700" height="450">
+                <div class="project-image-overlay">
+                  <span class="project-overlay-text">View Case Study →</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-tag-featured">43 Features · 0 Frameworks</span>
+              <h3 class="project-title">Cafe Roadway</h3>
+              <p class="project-desc">A dark-luxury restaurant website with <strong>43+ interactive features</strong> built using only HTML, CSS, and Vanilla JS — pure language mastery.</p>
+              <div class="project-stack">
+                <span>HTML5</span><span>CSS3</span><span>Vanilla JS</span><span>Canvas API</span>
+              </div>
+              <div class="project-meta">
+                <span class="project-meta-item">🎯 43 features</span>
+                <span class="project-meta-item">📦 3 files only</span>
+                <span class="project-meta-item">🎯 Click to explore</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-row clickable-project" data-project="homyz" data-reveal>
+            <div class="project-number">03</div>
+            <div class="project-visual tilt-card">
+              <div class="project-image-wrap">
+                <img src="assets/images/project3.jpg" alt="Homyz real estate platform" class="project-image" loading="lazy" width="700" height="450">
+                <div class="project-image-overlay">
+                  <span class="project-overlay-text">View Case Study →</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-tag-featured">Incapp Final Project</span>
+              <h3 class="project-title">Homyz</h3>
+              <p class="project-desc">A modern real estate web platform for Delhi NCR with dynamic property filtering, Google Sheets API as a <strong>serverless backend</strong>, and animated statistics.</p>
+              <div class="project-stack">
+                <span>HTML5</span><span>Bootstrap 5</span><span>JavaScript</span><span>Google Sheets API</span>
+              </div>
+              <div class="project-meta">
+                <span class="project-meta-item">🏠 Delhi NCR</span>
+                <span class="project-meta-item">☁️ Serverless</span>
+                <span class="project-meta-item">🎯 Click to explore</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         🆕 CODE SHOWCASE
+         ============================================ -->
+    <section id="code" class="section code-section" aria-labelledby="code-heading">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-num">05 / Code</span>
+          <h2 id="code-heading" class="section-title">
+            See my <span class="text-gradient">actual code</span>
+          </h2>
+          <p class="section-subtitle">Real snippets from my projects — no fake placeholders</p>
+        </div>
+
+        <div class="code-showcase" data-reveal>
+          <!-- Tab buttons -->
+          <div class="code-tabs">
+            <button class="code-tab active" data-lang="java" data-cursor="pointer">
+              <span class="code-tab-icon">☕</span>
+              <span>Java</span>
+              <span class="code-tab-sub">Spring Security</span>
+            </button>
+            <button class="code-tab" data-lang="javascript" data-cursor="pointer">
+              <span class="code-tab-icon">⚡</span>
+              <span>JavaScript</span>
+              <span class="code-tab-sub">Bill Calculator</span>
+            </button>
+            <button class="code-tab" data-lang="sql" data-cursor="pointer">
+              <span class="code-tab-icon">🗄️</span>
+              <span>SQL</span>
+              <span class="code-tab-sub">Scoring Query</span>
+            </button>
+          </div>
+
+          <!-- Code editor window -->
+          <div class="code-editor glass-card">
+            <div class="code-editor-header">
+              <div class="editor-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <span class="editor-filename" id="code-filename">SecurityConfig.java</span>
+              <button class="copy-btn" id="copy-code-btn" data-cursor="pointer">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <pre class="code-block"><code id="code-content" class="language-java"></code></pre>
+          </div>
+
+          <div class="code-info">
+            <span id="code-info-text">From <strong>ResuMatch Pro</strong> — Spring Security 6 configuration with JWT authentication</span>
+            <a href="https://github.com/shudanshubora1410/resumatch-pro" target="_blank" rel="noopener noreferrer" class="code-link magnetic" data-cursor="pointer">
+              <span>View Full Source</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         🆕 TESTIMONIALS
+         ============================================ -->
+    <section id="testimonials" class="section testimonials-section" aria-labelledby="testi-heading">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-num">06 / Words</span>
+          <h2 id="testi-heading" class="section-title">
+            What people <span class="text-gradient">say</span>
+          </h2>
+        </div>
+
+        <div class="testimonials-carousel" data-reveal>
+          <div class="testimonials-track" id="testimonials-track">
+
+            <article class="testimonial-card glass-card">
+              <div class="testi-quote-icon">"</div>
+              <p class="testi-text">Shudanshu has consistently shown strong problem-solving skills throughout the Core Java training. His grasp on OOP concepts and ability to translate complex problems into clean code is exceptional for his year.</p>
+              <div class="testi-author">
+                <div class="testi-avatar" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">IS</div>
+                <div class="testi-info">
+                  <strong>Incapp Instructor</strong>
+                  <span>Senior Java Trainer · Incapp IT Training Institute</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card glass-card">
+              <div class="testi-quote-icon">"</div>
+              <p class="testi-text">Working with Shudanshu on ResuMatch Pro was a great experience. He led the backend architecture decisions and built a solid foundation that the rest of us could easily contribute to. His Spring Boot knowledge is impressive.</p>
+              <div class="testi-author">
+                <div class="testi-avatar" style="background: linear-gradient(135deg, #ec4899, #8b5cf6);">KS</div>
+                <div class="testi-info">
+                  <strong>Ketan Saini</strong>
+                  <span>Team Member · ResuMatch Pro · GLBITM</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card glass-card">
+              <div class="testi-quote-icon">"</div>
+              <p class="testi-text">The Cafe Roadway project blew me away — 43 features built with pure Vanilla JS, no frameworks. That's the kind of fundamental understanding most developers skip. His attention to detail is remarkable.</p>
+              <div class="testi-author">
+                <div class="testi-avatar" style="background: linear-gradient(135deg, #10b981, #6366f1);">SY</div>
+                <div class="testi-info">
+                  <strong>Shreyansh Yadav</strong>
+                  <span>Team Member · ResuMatch Pro · GLBITM</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card glass-card">
+              <div class="testi-quote-icon">"</div>
+              <p class="testi-text">Shudanshu's Homyz project was selected as our Web Dev Final Project because of its production-ready quality. Using Google Sheets API as a serverless backend was a creative solution we didn't teach — he figured it out himself.</p>
+              <div class="testi-author">
+                <div class="testi-avatar" style="background: linear-gradient(135deg, #f59e0b, #ec4899);">IT</div>
+                <div class="testi-info">
+                  <strong>Incapp Web Dev Mentor</strong>
+                  <span>Web Development Course Lead · Incapp</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card glass-card">
+              <div class="testi-quote-icon">"</div>
+              <p class="testi-text">A self-driven student with strong fundamentals in OOP, DBMS, and problem solving. Shudanshu consistently goes beyond classroom requirements to build real, deployable projects.</p>
+              <div class="testi-author">
+                <div class="testi-avatar" style="background: linear-gradient(135deg, #8b5cf6, #6366f1);">GL</div>
+                <div class="testi-info">
+                  <strong>Faculty</strong>
+                  <span>GL Bajaj Institute of Technology & Management</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+          <div class="testi-controls">
+            <button class="testi-btn" id="testi-prev" aria-label="Previous testimonial" data-cursor="pointer">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="testi-dots" id="testi-dots"></div>
+            <button class="testi-btn" id="testi-next" aria-label="Next testimonial" data-cursor="pointer">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         🆕 INTERACTIVE TERMINAL
+         ============================================ -->
+    <section id="terminal" class="section terminal-section" aria-labelledby="terminal-heading">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-num">07 / Terminal</span>
+          <h2 id="terminal-heading" class="section-title">
+            Talk to me in <span class="text-gradient">your language</span>
+          </h2>
+          <p class="section-subtitle">Type <code>help</code> to see all commands</p>
+        </div>
+
+        <div class="terminal-wrap glass-card" data-reveal>
+          <div class="terminal-header">
+            <div class="editor-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <span class="terminal-title">shudanshu@portfolio:~</span>
+            <button class="terminal-clear-btn" id="terminal-clear" data-cursor="pointer">Clear</button>
+          </div>
+          <div class="terminal-body" id="terminal-body">
+            <div class="terminal-line">
+              <span class="terminal-prompt">shudanshu@portfolio</span>
+              <span class="terminal-colon">:</span>
+              <span class="terminal-path">~</span>
+              <span class="terminal-dollar">$</span>
+              <span class="terminal-output">Welcome! Type <strong>help</strong> to see what I can do.</span>
+            </div>
+          </div>
+          <div class="terminal-input-line">
+            <span class="terminal-prompt">shudanshu@portfolio</span>
+            <span class="terminal-colon">:</span>
+            <span class="terminal-path">~</span>
+            <span class="terminal-dollar">$</span>
+            <input type="text" id="terminal-input" class="terminal-input" autocomplete="off" spellcheck="false" aria-label="Terminal input">
+            <span class="terminal-cursor">▊</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         CONTACT
+         ============================================ -->
+    <section id="contact" class="section contact-section" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-num">08 / Contact</span>
+          <h2 id="contact-heading" class="section-title">
+            Let's <span class="text-gradient">build something</span>
+          </h2>
+          <p class="section-subtitle">Have a project or internship in mind? I'd love to hear about it.</p>
+        </div>
+
+        <div class="contact-wrap">
+          <div class="contact-info" data-reveal>
+            <a href="mailto:shudanshubora1410@gmail.com" class="contact-big-link magnetic" data-cursor="pointer">
+              <span class="contact-label">Email me at</span>
+              <span class="contact-value">shudanshubora1410@gmail.com</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+
+            <div class="contact-socials">
+              <a href="https://github.com/shudanshubora1410" class="contact-social magnetic" target="_blank" rel="noopener noreferrer" data-cursor="pointer">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                <span>GitHub</span>
+              </a>
+              <a href="https://www.linkedin.com/in/shudanshubora/" class="contact-social magnetic" target="_blank" rel="noopener noreferrer" data-cursor="pointer">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+
+            <div class="contact-location">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Greater Noida, Uttar Pradesh, India</span>
+            </div>
+          </div>
+
+          <form id="contact-form" class="contact-form glass-card" novalidate data-reveal>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-name" class="form-label">Your name</label>
+                <input type="text" id="contact-name" name="name" class="form-input" autocomplete="name" required aria-required="true" aria-describedby="name-error">
+                <span id="name-error" class="form-error" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label for="contact-email" class="form-label">Email address</label>
+                <input type="email" id="contact-email" name="email" class="form-input" autocomplete="email" required aria-required="true" aria-describedby="email-error">
+                <span id="email-error" class="form-error" role="alert"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contact-subject" class="form-label">Subject</label>
+              <input type="text" id="contact-subject" name="subject" class="form-input" required aria-required="true" aria-describedby="subject-error">
+              <span id="subject-error" class="form-error" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label for="contact-message" class="form-label">Message</label>
+              <textarea id="contact-message" name="message" class="form-input form-textarea" rows="5" required aria-required="true" aria-describedby="message-error"></textarea>
+              <span id="message-error" class="form-error" role="alert"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-full magnetic" data-cursor="pointer">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-loading" hidden>Sending...</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+              <span class="btn-glow"></span>
+            </button>
+            <div id="form-success" class="form-success" role="alert" hidden>
+              ✅ Message sent! I'll get back to you within 24 hours.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <a href="#hero" class="footer-logo" data-cursor="pointer">Shudanshu Bora<span>.</span></a>
+        <p class="footer-text">Building the web, one line at a time.</p>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Shudanshu Bora. Crafted with ☕ and a lot of patience</p>
+        <button id="back-to-top" class="back-to-top magnetic" aria-label="Back to top" data-cursor="pointer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+          <span>Back to top</span>
+        </button>
+      </div>
+      <button id="snake-trigger" class="snake-hint" aria-label="Hidden game">🐍</button>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       🆕 PROJECT MODAL (Hidden by default)
+       ============================================ -->
+  <div id="project-modal" class="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-container">
+      <button class="modal-close" id="modal-close" aria-label="Close modal" data-cursor="pointer">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+
+      <div class="modal-nav">
+        <button class="modal-nav-btn" id="modal-prev" data-cursor="pointer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+          <span>Previous</span>
+        </button>
+        <span class="modal-counter"><span id="modal-current">1</span> / <span id="modal-total">3</span></span>
+        <button class="modal-nav-btn" id="modal-next" data-cursor="pointer">
+          <span>Next</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+
+      <div class="modal-content" id="modal-content">
+        <!-- Content injected by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================
+       🆕 COMMAND PALETTE (Hidden by default)
+       ============================================ -->
+  <div id="cmd-palette" class="cmd-palette" aria-hidden="true">
+    <div class="cmd-backdrop"></div>
+    <div class="cmd-modal glass-card">
+      <div class="cmd-search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="text" id="cmd-input" placeholder="Type a command or search..." autocomplete="off">
+        <kbd>ESC</kbd>
+      </div>
+      <div class="cmd-results" id="cmd-results"></div>
+      <div class="cmd-footer">
+        <span><kbd>↑↓</kbd> navigate</span>
+        <span><kbd>↵</kbd> select</span>
+        <span><kbd>esc</kbd> close</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================
+       🆕 ACHIEVEMENT TOAST
+       ============================================ -->
+  <div id="achievement-toast" class="achievement-toast" aria-hidden="true">
+    <div class="achievement-icon">🏆</div>
+    <div class="achievement-content">
+      <strong id="achievement-title">Achievement Unlocked!</strong>
+      <span id="achievement-desc">You did something cool</span>
+    </div>
+  </div>
+
+  <!-- ============================================
+       🆕 SNAKE GAME MODAL
+       ============================================ -->
+  <div id="snake-modal" class="snake-modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="snake-container glass-card">
+      <div class="snake-header">
+        <h3>🐍 Snake</h3>
+        <div class="snake-score">Score: <span id="snake-score">0</span> · High: <span id="snake-high">0</span></div>
+        <button class="modal-close" id="snake-close" data-cursor="pointer">×</button>
+      </div>
+      <canvas id="snake-canvas" width="400" height="400"></canvas>
+      <div class="snake-controls">
+        <p>Use <kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd> arrow keys</p>
+        <button id="snake-start" class="btn btn-primary" data-cursor="pointer">Start Game</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================
+       🆕 MATRIX RAIN CANVAS
+       ============================================ -->
+  <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+
+  <!-- Confetti canvas -->
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/features.js" defer></script>
+</body>
+</html>

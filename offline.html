@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline — Shudanshu Bora</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0f;
+      color: #f5f5f7;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      overflow: hidden;
+      position: relative;
+    }
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    .orb-1 { width: 400px; height: 400px; background: #6366f1; top: -10%; left: -10%; animation: float 20s ease-in-out infinite; }
+    .orb-2 { width: 500px; height: 500px; background: #ec4899; bottom: -10%; right: -10%; animation: float 25s ease-in-out infinite reverse; }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(50px, 50px); }
+    }
+    .container {
+      max-width: 500px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    .icon {
+      font-size: 5rem;
+      margin-bottom: 1.5rem;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #6366f1, #ec4899);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p {
+      color: #a1a1aa;
+      font-size: 1.125rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 2rem;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+      text-decoration: none;
+      border-radius: 9999px;
+      font-weight: 600;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 50px -10px rgba(99,102,241,0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="container">
+    <div class="icon">📡</div>
+    <h1>You're Offline</h1>
+    <p>Looks like you've lost your connection. Don't worry — the portfolio will be right here when you're back online.</p>
+    <button class="btn" onclick="window.location.reload()">
+      🔄 Try Again
+    </button>
+  </div>
+
+  <script>
+    // Auto-reload when back online
+    window.addEventListener('online', () => window.location.reload());
+  </script>
+</body>
+</html>
