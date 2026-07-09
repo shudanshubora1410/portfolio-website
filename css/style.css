@@ -444,27 +444,22 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: var(--brand-gradient);
-  color: white;
-  border-radius: var(--r-md);
-  font-size: var(--text-sm);
-  font-weight: 700;
-  letter-spacing: 0;
-  transition: transform 400ms var(--ease-bounce);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: transparent;
+  padding: 0;
+  transition: color 300ms var(--ease-out);
 }
 
 .nav-logo:hover .logo-mark {
-  transform: rotate(-10deg) scale(1.1);
+  color: var(--brand-primary);
 }
 
 .logo-dot {
-  width: 8px;
-  height: 8px;
-  background: var(--brand-accent);
-  border-radius: 50%;
-  animation: pulse-dot 2s ease-in-out infinite;
+  display: none;
 }
 
 @keyframes pulse-dot {
@@ -831,12 +826,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .badge-dot {
-  width: 8px;
-  height: 8px;
-  background: #10b981;
-  border-radius: 50%;
-  box-shadow: 0 0 12px #10b981;
-  animation: pulse-dot 2s ease-in-out infinite;
+  display: none;
 }
 
 .hero-name {
